@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>-mode=doc -cloudUrl=https://qcs.us.qlik-stage.com/ -documentFolder=TestCloudUpload -qvscluster=QVS%40selun-hmd3 -API_key=eyJhbGciOiJFUzM4NCIsImtpZCI6IjkwMGUyNzM1LTg4MzQtNGI2Yi1iZjA4LTczNjNlNGJiMjUxZCIsInR5cCI6IkpXVCJ9.eyJzdWJUeXBlIjoidXNlciIsInRlbmFudElkIjoieHFGUTBrNjZ2U1I4ZjlHN0otdlp0SFpRa2lZckNwY3QiLCJqdGkiOiI5MDBlMjczNS04ODM0LTRiNmItYmYwOC03MzYzZTRiYjI1MWQiLCJhdWQiOiJxbGlrLmFwaSIsImlzcyI6InFsaWsuYXBpL2FwaS1rZXlzIiwic3ViIjoiQ2s5eGZaUjhRR3JKUGhEb0tURkE2cnBPUEgydXU1ZkUifQ.i1gWWWsXS11pCCZ9420XlcLApT2612WUuNL9gl5T-WsdnrWR7xiyRlpEpbynhxgMwpDmFCkDAl1MBCxW3VpEd8VWE8l3VwAoCgY6IS9fHfrX5nAuvagX1HSwmw0Ec-gD</StartArguments>
+  </PropertyGroup>
+</Project>

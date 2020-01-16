@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54E023D7-B350-4126-A5CB-D35A369F6BA8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>qlik_qv_export</RootNamespace>
+    <AssemblyName>qlik_qv_export</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppUploadTimeoutException.cs" />
+    <Compile Include="QlikQvExport.cs" />
+    <Compile Include="CommunicationSupport.cs" />
+    <Compile Include="Connected Services\QMSAPI\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="EngineDoc.cs" />
+    <Compile Include="HttpAppSizeException.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceKeyBehaviorExtensionElement.cs" />
+    <Compile Include="ServiceKeyClientMessageInspector.cs" />
+    <Compile Include="ServiceKeyEndpointBehavior.cs" />
+    <Compile Include="StringToListConverter.cs" />
+    <Compile Include="WorkflowException.cs" />
+    <Compile Include="WorkflowExceptionStrategy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\QMSAPI\QMSBackendService1.wsdl" />
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.AssignedUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.Assignments.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.CALConfiguration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DirectoryServiceConnectorAPISettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DirectoryServiceObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DistributionConfigValues.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DocumentFolder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DocumentMetaData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DocumentNode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DocumentTask.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DSProvider.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DSPSettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.DSResource.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.EDXStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.eStatusFlag.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.ExtensionUploadHandle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.Field.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.FieldContent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetKeyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetKeyResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetKeyResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetKeyResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetQvServicesConfigValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetQvServicesConfigValuesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetQvServicesConfigValuesResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetSystemInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetSystemInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetSystemInformationResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetSystemInformationResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetSystemInformationResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetTimeLimitedRequestKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetTimeLimitedRequestKeyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetTimeLimitedRequestKeyResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetTimeLimitedRequestKeyResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.GetTimeLimitedRequestKeyResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.License.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.LicenseDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.LicenseModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.LicenseOverview.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.LogFileEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QDSDocumentSession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QDSNeedRestartResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QDSNeedRestartResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QDSNeedRestartResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QDSNeedRestartResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QDSNeedRestartResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QDSSettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QMSVersion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVPRAPISettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVSMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVSNeedRestartResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVSNeedRestartResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVSNeedRestartResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVSNeedRestartResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVSNeedRestartResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVSSettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVWSAuthentication.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.QVWSSettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.Report.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.SectionAccessTable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.ServerObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.ServerObjectMetaData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.ServiceInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.ServiceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.ServiceUpdateStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.TaskInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.TaskLogHistoryEntries.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.TaskStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.TaskStatusNode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.TriggerEDXTaskResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.UserCALs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service1.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service2.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service3.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service4.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service5.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service6.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service7.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service8.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service9.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Uri.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\QMSAPI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\QMSAPI\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\QMSAPI\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\QMSAPI\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

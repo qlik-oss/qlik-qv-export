@@ -1,0 +1,11 @@
+**/*.*.suo
+**/*.suo
+**/*.*.orig
+**/*.zip
+**/*.exe
+
+**/bin/
+**/obj/
+**/.vs/
+**/Connected Services/
+

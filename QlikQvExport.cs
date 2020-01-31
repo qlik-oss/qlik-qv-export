@@ -20,9 +20,9 @@ namespace qlik_qv_export
         private string category = string.Empty;
         private string csvFileName = string.Empty;
         private CommunicationSupport commSupport;
-        private IQMS2 client;
+        private IQMS client;
 
-        public QlikQvExport(string[] args, CommunicationSupport commSup, IQMS2 qmsClient)
+        public QlikQvExport(string[] args, CommunicationSupport commSup, IQMS qmsClient)
         {
             client = qmsClient;
             commSupport = commSup;
@@ -142,7 +142,7 @@ namespace qlik_qv_export
             }
         }
 
-        private static ServiceInfo FindService(IQMS2 client, ServiceTypes serviceType, string serviceName)
+        private static ServiceInfo FindService(IQMS client, ServiceTypes serviceType, string serviceName)
         {
             List<ServiceInfo> service = client.GetServices(serviceType);
             if (service != null && service.Count > 0)

@@ -13,7 +13,7 @@ namespace qlik_qv_export
         private static Uri qms = new Uri("http" + "://localhost:4799/QMS/Service");
         private static string cloudDeploymentUrl = string.Empty;
         private static string mountOrRootFolder = string.Empty;
-        private static IQMS2 client;
+        private static IQMS client;
         private static Guid qvsId;
         private static string qvsCluster = string.Empty;
         private static string jwtToken = string.Empty;
@@ -245,13 +245,13 @@ namespace qlik_qv_export
             }
         }
 
-        private static IQMS2 CreateQMSAPIClient(Uri uri)
+        private static IQMS CreateQMSAPIClient(Uri uri)
         {
-            QMS2Client client = null;
+            QMSClient client = null;
 
             try
             {
-                client = new QMS2Client("BasicHttpBinding_IQMS2", uri.AbsoluteUri);
+                client = new QMSClient("BasicHttpBinding_IQMS", uri.AbsoluteUri);
                 ServiceKeyEndpointBehavior serviceKeyEndpointBehavior = new ServiceKeyEndpointBehavior();
                 client.Endpoint.Behaviors.Add(serviceKeyEndpointBehavior);
                 ServiceKeyClientMessageInspector.ServiceKey = client.GetTimeLimitedServiceKey();

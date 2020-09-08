@@ -10,6 +10,8 @@ using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using Newtonsoft.Json.Linq;
 using static qlik_qv_export.Item;
+using System.Linq;
+using System.Reflection;
 
 namespace qlik_qv_export
 {
@@ -27,126 +29,217 @@ namespace qlik_qv_export
     }
     public class CommunicationSupport
     {
-        public static async Task WriteJsonRequest(string jsonRequest, WebRequest request)
+        public async Task<string> DistributeDocument(string fileNameAndPath, string cloudDeploymentResourceUrl, string sourceDocumentId, string jwtToken)
         {
-            if (jsonRequest != null)
-            {
-                CancellationTokenSource cts = new CancellationTokenSource();
-                cts.CancelAfter(10000);//TODO Config?
-                CancellationToken token = cts.Token;
-
-                try
-                {
-                    byte[] requestBytes = Encoding.UTF8.GetBytes(jsonRequest);
-                    request.ContentLength = requestBytes.Length;
-                    request.ContentType = "application/json";
-
-                    if (requestBytes.Length > 0)
-                    {
-                        using (Stream requestStream = await request.GetRequestStreamAsync().ConfigureAwait(false))
-                        {
-                            token.ThrowIfCancellationRequested();
-                            await requestStream.WriteAsync(requestBytes, 0, requestBytes.Length).ConfigureAwait(false);
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    if (token.IsCancellationRequested)
-                    {
-                        throw new Exception("Request timed out." + e);
-                    }
-                    throw e;
-                }
-                finally
-                {
-                    cts.Dispose();
-                }
-            }
-        }
-
-        public async Task<HttpResponseMessage> DistributeDocument(string fileNameAndPath, string cloudDeploymentResourceUrl, string sourceDocumentId, string jwtToken)
-        {
+            PrintMessage("Deployment Name: " + cloudDeploymentResourceUrl, false);
             string multiCloudMachineName = cloudDeploymentResourceUrl.TrimEnd('/') + "/api/v1/";
             string qvDocName = Path.GetFileNameWithoutExtension(fileNameAndPath);
-            var l_FileStream = new FileStream(fileNameAndPath, FileMode.Open, FileAccess.Read);
-            var stream = new BufferedStream(l_FileStream, 8192);
-            var content = new StreamContent(stream, 65536);
 
             try
             {
-                content.Headers.Add("Content-Type", "binary/octet-stream");
-                using (HttpClient cloudClient = new HttpClient())
+                var tusClient = new TusClient();
+                tusClient.AdditionalHeaders.Add("Authorization", "Bearer " + jwtToken);
+
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                string version = assembly.GetName().Version.ToString();
+
+                string url;
+                using (var l_FileStream = new FileStream(fileNameAndPath, FileMode.Open, FileAccess.Read))
                 {
-                    var request = new HttpRequestMessage(HttpMethod.Post, multiCloudMachineName + "apps/import?mode=autoreplace&appId=" + sourceDocumentId + "&fallbackName=" + qvDocName)
-                    {
-                        Content = content
-                    };
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
-                    HttpResponseMessage autoReplaceDocResponse = await cloudClient.SendAsync(request);
-                    switch (autoReplaceDocResponse.StatusCode)
-                    {
-                        case HttpStatusCode.RequestEntityTooLarge:
-                            PrintMessage("Failure - Could not upload document to engine, since engine reported that the app exceeds the maximum size. statusCode= " + autoReplaceDocResponse.StatusCode + ", reason= " + autoReplaceDocResponse.ReasonPhrase, false);
-                            throw new HttpAppSizeException("App size exceeds max size");
+                    url = await tusClient.CreateAsync(multiCloudMachineName + "temp-contents/files", l_FileStream.Length, this, version);
 
-                        case HttpStatusCode.GatewayTimeout:
-                            PrintMessage("Failure - Could not upload document in engine, API gateway in QSEfe/Multicloud reported that it timed out when waiting for a response. statusCode= " + autoReplaceDocResponse.StatusCode + ", reason= " + autoReplaceDocResponse.ReasonPhrase, false);
-                            WorkflowExceptionStrategy.ThrowException(autoReplaceDocResponse);
-                            break;
-                    }
-                    if (!autoReplaceDocResponse.IsSuccessStatusCode)
-                    {
-                        PrintMessage("Failure - Could not upload document " + qvDocName + "to engine. statusCode= " + autoReplaceDocResponse.StatusCode + ", reason= " + autoReplaceDocResponse.ReasonPhrase, false);
-                        WorkflowExceptionStrategy.ThrowException(autoReplaceDocResponse);
-                    }
+                    int cloudChunkSize = 300;
+                    PrintMessage("Upload file to Cloud - Chunk size set to " + cloudChunkSize, false);
+                    await tusClient.UploadAsync(url, l_FileStream, cloudChunkSize, this, version);
+                }
+                EngineDoc result = await ImportApp(jwtToken, multiCloudMachineName, sourceDocumentId, qvDocName, url, version);
 
-                    else
-                    {
-                        Console.WriteLine("Success - Document  " + qvDocName + " uploaded to engine");
-                    }
-
-                    var responseContent = await autoReplaceDocResponse.Content.ReadAsStringAsync() ?? "{}";
-
-                    EngineDoc result = JsonConvert.DeserializeObject<EngineDoc>(responseContent);
-
-                    HttpResponseMessage createItemResponse = await CreateItem(result, jwtToken, multiCloudMachineName, qvDocName);
-
-                    return createItemResponse;
+                CollectionEntity engineItem = await CreateEngineItem(result, jwtToken, multiCloudMachineName, qvDocName);
+                if (engineItem == null)
+                {
+                    return string.Empty;
                 }
             }
             catch (HttpAppSizeException)
             {
-                PrintMessage("App " + qvDocName + " exceeds max size", false);
-
+                throw;
             }
-            catch (WorkflowException e)
+            catch (WorkflowException)
             {
-                PrintMessage("Failure - Could not upload document " + qvDocName + " to engine, workflowException. Message =" + e.Message, false);
+                throw;
             }
             catch (TaskCanceledException e)
             {
-                PrintMessage("Failure - Could not upload document " + qvDocName + " to engine, Connection timeout. Message =" + e.Message, false);
+                PrintMessage("Failure - Could not upload document to engine, Connection timeout. Message =" + e.Message, false);
+                throw new AppUploadTimeoutException("Client connection timeout.");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                PrintMessage("Failure - Could not upload document " + qvDocName + " to engine, Other exception of unknown cause. Message =" + ex.Message, false);
+                throw;
             }
-            finally
-            {
-                content.Dispose();
-                stream.Dispose();
-                l_FileStream.Dispose();
-            }
-            return null;
+            return string.Empty;
         }
 
-        private string SetupJson(EngineDoc doc, string docName)
+        private async Task<EngineDoc> ImportApp(string jwtToken, string multiCloudMachineName, string sourceDocumentId, string fileName, string url, string version)
+        {
+            string fileId = url.Substring(url.LastIndexOf('/') + 1);
+            string additionalUri = "apps/import?fileId=" + fileId + "&mode=autoreplace" + "&appId=" + CalculateDocumentOrTagId(sourceDocumentId, fileName);
+
+            using (HttpResponseMessage response = await SetupAndSendRequest(HttpMethod.Post, multiCloudMachineName + additionalUri, "", jwtToken, "UserAgent", "QDS/" + version))
+            {
+                try
+                {
+                    switch (response.StatusCode)
+                    {
+                        case HttpStatusCode.RequestEntityTooLarge:
+                            PrintMessage("Failure - Could not upload document to engine, since engine reported that the app exceeds the maximum size. statusCode= " + response.StatusCode + ", reason= " + response.ReasonPhrase, false);
+                            throw new HttpAppSizeException("App size exceeds max size");
+
+                        case HttpStatusCode.GatewayTimeout:
+                            PrintMessage("Failure - Could not upload document in engine, API gateway in QSEfe/Multicloud reported that it timed out when waiting for a response. statusCode= " + response.StatusCode + ", reason= " + response.ReasonPhrase, false);
+                            WorkflowExceptionStrategy.ThrowException(response);
+                            break;
+                    }
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        PrintMessage("Failure - Could not upload document to engine. statusCode= " + response.StatusCode + ", reason= " + response.ReasonPhrase, false);
+                        WorkflowExceptionStrategy.ThrowException(response);
+                    }
+                    else
+                    {
+                        PrintMessage("Success - Upload document " + fileName + " to engine", false);
+                    }
+
+                    var responseContent = await response.Content.ReadAsStringAsync() ?? "{}";
+                    EngineDoc result = JsonConvert.DeserializeObject<EngineDoc>(responseContent);
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    PrintMessage("Failed to import app " + fileName + " to engine. Exception: " + e.Message, false);
+                    return null;
+                }
+            }
+        }
+
+        private async Task<CollectionEntity> CreateEngineItem(EngineDoc doc, string jwtToken, string multiCloudMachineName, string docName)
+        {
+            CollectionEntity result = null;
+            try
+            {
+                result = await GetItem(jwtToken, multiCloudMachineName, doc.Attributes.AppId, "qvapp");
+
+                if (result != null && result.Id != null)
+                {
+                    return result;
+                }
+
+                string additionalUri = "items";
+                string jsonRequest = SetupJson(doc, docName);
+                using (HttpResponseMessage createItemResponse = await SetupAndSendRequest(HttpMethod.Post, multiCloudMachineName + additionalUri, jsonRequest, jwtToken))
+                {
+                    if (createItemResponse != null && createItemResponse.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        PrintMessage("Failure - Document could not be created. StatusCode= " + createItemResponse.StatusCode + ", reason= " + createItemResponse.ReasonPhrase, false);
+                    }
+                    var responseContent = await createItemResponse.Content.ReadAsStringAsync() ?? "{}";
+                    result = JsonConvert.DeserializeObject<CollectionEntity>(responseContent);
+                }
+            }
+            catch (Exception e)
+            {
+                PrintMessage("Failure - Could not create item for doc upload. Exception= " + e.Message, false);
+            }
+            return result;
+        }
+
+        private string CalculateDocumentOrTagId(string arg1, string arg2)
+        {
+            StringBuilder documentId = new StringBuilder();
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] buffer = md5.ComputeHash(Encoding.UTF8.GetBytes(arg1 + arg2));
+
+                for (int i = 0; i < buffer.Length; i++)
+                {
+                    documentId.Append(buffer[i].ToString("x2"));
+                }
+            }
+            return documentId.ToString();
+        }
+
+        private async Task<CollectionEntity> GetItem(string jwtToken, string multiCloudMachineName, string resourceId, string resourceType)
+        {
+            string additionalUri = "items?resourceType=" + resourceType + "&resourceId=" + resourceId;
+            return await GenericGet(jwtToken, multiCloudMachineName, additionalUri);
+        }
+
+        private async Task<CollectionEntity> GenericGet(string jwtToken, string multiCloudMachineName, string additionalUri)
+        {
+            ElasticEntityListContainer<CollectionEntity> collectionResponse = null;
+            try
+            {
+                using (HttpResponseMessage createTagResponse = await SetupAndSendRequest(HttpMethod.Get, multiCloudMachineName + additionalUri, "", jwtToken))
+                {
+                    if (createTagResponse.StatusCode == HttpStatusCode.OK)
+                    {
+                        var responseContent = await createTagResponse.Content.ReadAsStringAsync() ?? "{}";
+                        collectionResponse = JsonConvert.DeserializeObject<ElasticEntityListContainer<CollectionEntity>>(responseContent);
+                    }
+                    else
+                    {
+                        PrintMessage("Cloud Native: Server returned " + createTagResponse.StatusCode + " when trying to get item", false);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                PrintMessage("Could not get items. Exception= " + e.Message, false);
+            }
+            return collectionResponse == null ? null : collectionResponse.Data.FirstOrDefault();
+        }
+
+        private async Task<HttpResponseMessage> SetupAndSendRequest(HttpMethod method, string uri, string jsonRequest, string jwtToken, string additionalHeaderName = "", string additionalHeaderValue = "")
+        {
+            try
+            {
+                using (HttpClient cloudClient = new HttpClient())
+                {
+                    cloudClient.Timeout = TimeSpan.FromMinutes(10);
+                    using (HttpRequestMessage request = new HttpRequestMessage(method, uri))
+                    {
+                        if (!string.IsNullOrEmpty(jsonRequest))
+                        {
+                            request.Content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+                        }
+
+                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+                        if (!string.IsNullOrEmpty(additionalHeaderValue))
+                        {
+                            request.Headers.Add(additionalHeaderName, additionalHeaderValue);
+                        }
+                        HttpResponseMessage createItemResponse = await cloudClient.SendAsync(request);
+                        return createItemResponse;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        private JsonSerializerSettings IgnoreNullSetting()
         {
             var ignoreNull = new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore
             };
+            return ignoreNull;
+        }
+
+        private string SetupJson(EngineDoc doc, string docName)
+        {
             var item = new Itemobject();
             item.name = docName;
             item.resourceId = doc.Attributes.AppId;
@@ -174,26 +267,8 @@ namespace qlik_qv_export
                 _resourcetype = doc.Attributes.Resourcetype
 
             };
-            var json = JsonConvert.SerializeObject(item, ignoreNull);
+            var json = JsonConvert.SerializeObject(item, IgnoreNullSetting());
             return json;
-        }
-
-        private async Task<HttpResponseMessage> CreateItem(EngineDoc doc, string jwtToken, string multiCloudMachineName, string docName)
-        {
-            string jsonRequest = SetupJson(doc, docName);
-
-            using (HttpClient cloudClient = new HttpClient())
-            {
-                var request = new HttpRequestMessage(HttpMethod.Post, multiCloudMachineName + "items")
-                {
-                    Content = new StringContent(jsonRequest, Encoding.UTF8, "application/json")
-                };
-
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
-                HttpResponseMessage createItemResponse = await cloudClient.SendAsync(request);
-                var responseContent = await createItemResponse.Content.ReadAsStringAsync() ?? "{}";
-                return createItemResponse;
-            }
         }
 
         public void PrintMessage(string message, bool exit)

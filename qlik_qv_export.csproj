@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUploadTimeoutException.cs" />
+    <Compile Include="CollectionEntity.cs" />
+    <Compile Include="ElasticEntityListContainer.cs" />
     <Compile Include="QlikQvExport.cs" />
     <Compile Include="CommunicationSupport.cs" />
     <Compile Include="Connected Services\QMSAPI\Reference.cs">
@@ -68,6 +70,16 @@
     <Compile Include="ServiceKeyClientMessageInspector.cs" />
     <Compile Include="ServiceKeyEndpointBehavior.cs" />
     <Compile Include="StringToListConverter.cs" />
+    <Compile Include="TagObject.cs" />
+    <Compile Include="TusFiles\TusClient.cs" />
+    <Compile Include="TusFiles\TusException.cs" />
+    <Compile Include="TusFiles\TusHeaderNames.cs" />
+    <Compile Include="TusFiles\TusHTTPClient.cs" />
+    <Compile Include="TusFiles\TusHttpRequest.cs" />
+    <Compile Include="TusFiles\TusHttpResponse.cs" />
+    <Compile Include="TusFiles\TusOperation.cs" />
+    <Compile Include="TusFiles\TusServerInfo.cs" />
+    <Compile Include="TusFiles\Unit.cs" />
     <Compile Include="WorkflowException.cs" />
     <Compile Include="WorkflowExceptionStrategy.cs" />
   </ItemGroup>

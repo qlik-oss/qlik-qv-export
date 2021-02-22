@@ -17,6 +17,11 @@ namespace qlik_qv_export
     /// </summary>
     public class TusClient
     {
+        private string qdsVersion;
+        public TusClient(string version)
+        {
+            qdsVersion = version;
+        }
         /// <summary>
         /// A mutable dictionary of headers which will be included with all requests.
         /// </summary>
@@ -36,19 +41,17 @@ namespace qlik_qv_export
         /// <param name="metadata">Metadata to be stored alongside the file.</param>
         /// <returns>The URL to the created file.</returns>
         /// <exception cref="Exception">Throws if the response doesn't contain the required information.</exception>
-        public async Task<string> CreateAsync(string url, long uploadLength, CommunicationSupport commSup, string version,
+        public async Task<string> CreateAsync(string url, long uploadLength, CommunicationSupport commSup, string proxyName, string proxyPort,
             params (string key, string value)[] metadata)
         {
             var requestUri = new Uri(url);
-            var client = new TusHttpClient
-            {
-                Proxy = Proxy
-            };
+            var client = CreateTusClient(proxyName, proxyPort);
+
             var request = new TusHttpRequest(url, RequestMethod.Post, AdditionalHeaders);
 
             request.AddHeader(TusHeaderNames.UploadLength, uploadLength.ToString());
             request.AddHeader(TusHeaderNames.ContentLength, "0");
-            request.AddHeader(TusHeaderNames.UserAgent, "QDS/" + version);
+            request.AddHeader(TusHeaderNames.UserAgent, qdsVersion);
             request.AddHeader(TusHeaderNames.UploadMetadata, string.Join(",", metadata
                 .Select(md =>
                     $"{md.key.Replace(" ", "").Replace(",", "")} {Convert.ToBase64String(Encoding.UTF8.GetBytes(md.value))}")));
@@ -86,9 +89,10 @@ namespace qlik_qv_export
             FileStream fileStream,
             int chunkSize,
             CommunicationSupport commSup,
-            string version,
+            string proxyName,
+            string proxyPort,
             CancellationToken cancellationToken = default) =>
-            UploadFileAsync(url, fileStream, chunkSize, commSup, version, cancellationToken);
+            UploadFileAsync(url, fileStream, chunkSize, commSup, proxyName, proxyPort, cancellationToken);
         /// <summary>
         /// Upload a file to the Tus server.
         /// </summary>
@@ -102,7 +106,8 @@ namespace qlik_qv_export
             Stream fileStream,
             int chunkSize,
             CommunicationSupport commSup,
-            string version,
+            string proxyName,
+            string proxyPort,
             CancellationToken cancellationToken = default) => new TusOperation<Unit>(
             async reportProgress =>
             {
@@ -111,7 +116,7 @@ namespace qlik_qv_export
                     var offset = await GetFileOffset(url)
                         .ConfigureAwait(false);
 
-                    var client = new TusHttpClient();
+                    var client = CreateTusClient(proxyName, proxyPort);
                     SHA1 sha = new SHA1Managed();
 
                     var uploadChunkSize = (int)Math.Ceiling(chunkSize * 1024.0 * 1024.0); // to MB
@@ -137,7 +142,7 @@ namespace qlik_qv_export
                         request.AddHeader(TusHeaderNames.UploadOffset, offset.ToString());
                         request.AddHeader(TusHeaderNames.UploadChecksum, $"sha1 {Convert.ToBase64String(sha1Hash)}");
                         request.AddHeader(TusHeaderNames.ContentType, "application/offset+octet-stream");
-                        request.AddHeader(TusHeaderNames.UserAgent, "QDS/" + version);
+                        request.AddHeader(TusHeaderNames.UserAgent, qdsVersion);
 
                         try
                         {
@@ -210,6 +215,22 @@ namespace qlik_qv_export
                     fileStream.Dispose();
                 }
             });
+
+        private TusHttpClient CreateTusClient(string proxyName, string proxyPort)
+        {
+            var client = new TusHttpClient
+            {
+                Proxy = Proxy
+            };
+            if (!string.IsNullOrEmpty(proxyName))
+            {
+                ICredentials credentials = CredentialCache.DefaultCredentials;
+                IWebProxy proxy = new WebProxy(proxyName, Int32.Parse(proxyPort));
+                proxy.Credentials = credentials;
+                client.Proxy = proxy;
+            }
+            return client;
+        }
 
         private async Task<long> GetFileOffset(string url)
         {

@@ -8,10 +8,10 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
-using Newtonsoft.Json.Linq;
 using static qlik_qv_export.Item;
 using System.Linq;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace qlik_qv_export
 {
@@ -29,32 +29,62 @@ namespace qlik_qv_export
     }
     public class CommunicationSupport
     {
-        public async Task<string> DistributeDocument(string fileNameAndPath, string cloudDeploymentResourceUrl, string sourceDocumentId, string jwtToken)
+        private static HttpClient cloudClient { get; set; }
+        private readonly static object httpClientLock = new object();
+
+        private static void CreateHttpClient(string proxyName, string proxyPort)
+        {
+            lock (httpClientLock)
+            {
+                if (cloudClient == null)
+                {
+                    HttpClientHandler httpClientHandler;
+                    if (!string.IsNullOrEmpty(proxyName))
+                    {
+                        httpClientHandler = GetHttpClientHandler(proxyName, proxyPort);
+                        cloudClient = new HttpClient(httpClientHandler);
+                    }
+                    else
+                    {
+                        cloudClient = new HttpClient();
+                    }
+                    cloudClient.Timeout = TimeSpan.FromMinutes(10);
+                }
+            }
+        }
+
+        public CommunicationSupport(string proxyName, string proxyPort)
+        {
+            CreateHttpClient(proxyName, proxyPort);
+        }
+
+        public async Task<string> DistributeDocumentsOrFiles(string fileNameAndPath, string cloudDeploymentResourceUrl, string sourceDocumentId, string jwtToken, string mode, string proxyName, string proxyPort, string appId = null)
         {
             PrintMessage("Deployment Name: " + cloudDeploymentResourceUrl, false);
             string multiCloudMachineName = cloudDeploymentResourceUrl.TrimEnd('/') + "/api/v1/";
-            string qvDocName = Path.GetFileNameWithoutExtension(fileNameAndPath);
-
+            string responseContent;
+            
             try
             {
-                var tusClient = new TusClient();
-                tusClient.AdditionalHeaders.Add("Authorization", "Bearer " + jwtToken);
-
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 string version = assembly.GetName().Version.ToString();
+                var tusClient = new TusClient(version);
+                tusClient.AdditionalHeaders.Add("Authorization", "Bearer " + jwtToken);
 
                 string url;
                 using (var l_FileStream = new FileStream(fileNameAndPath, FileMode.Open, FileAccess.Read))
                 {
-                    url = await tusClient.CreateAsync(multiCloudMachineName + "temp-contents/files", l_FileStream.Length, this, version);
+                    url = await tusClient.CreateAsync(multiCloudMachineName + "temp-contents/files", l_FileStream.Length, this, proxyName, proxyPort);
 
                     int cloudChunkSize = 300;
                     PrintMessage("Upload file to Cloud - Chunk size set to " + cloudChunkSize, false);
-                    await tusClient.UploadAsync(url, l_FileStream, cloudChunkSize, this, version);
+                    await tusClient.UploadAsync(url, l_FileStream, cloudChunkSize, this, proxyName, proxyPort);
                 }
-                EngineDoc result = await ImportApp(jwtToken, multiCloudMachineName, sourceDocumentId, qvDocName, url, version);
+                responseContent = await ImportApp(jwtToken, multiCloudMachineName, sourceDocumentId, fileNameAndPath, url, mode, appId, version);
 
-                CollectionEntity engineItem = await CreateEngineItem(result, jwtToken, multiCloudMachineName, qvDocName);
+                EngineDoc result = JsonConvert.DeserializeObject<EngineDoc>(responseContent);
+
+                CollectionEntity engineItem = await CreateEngineItem(result, jwtToken, multiCloudMachineName, Path.GetFileNameWithoutExtension(fileNameAndPath), version);
                 if (engineItem == null)
                 {
                     return string.Empty;
@@ -77,15 +107,16 @@ namespace qlik_qv_export
             {
                 throw;
             }
-            return string.Empty;
+            return responseContent;
         }
 
-        private async Task<EngineDoc> ImportApp(string jwtToken, string multiCloudMachineName, string sourceDocumentId, string fileName, string url, string version)
+        private async Task<string> ImportApp(string jwtToken, string multiCloudMachineName, string sourceDocumentId, string fileName, string url, string mode, string appId, string version)
         {
             string fileId = url.Substring(url.LastIndexOf('/') + 1);
-            string additionalUri = "apps/import?fileId=" + fileId + "&mode=autoreplace" + "&appId=" + CalculateDocumentOrTagId(sourceDocumentId, fileName);
+            string fileNameWithOutExt = Path.GetFileNameWithoutExtension(fileName);
+            string additionalUri = "apps/import?fileId=" + fileId + "&mode=" + mode + "&appId=" + (appId == null ? CalculateDocumentOrTagId(sourceDocumentId, fileNameWithOutExt) : appId) + "&fallbackName=" + fileNameWithOutExt;
 
-            using (HttpResponseMessage response = await SetupAndSendRequest(HttpMethod.Post, multiCloudMachineName + additionalUri, "", jwtToken, "UserAgent", "QDS/" + version))
+            using (HttpResponseMessage response = await SetupAndSendRequest(HttpMethod.Post, multiCloudMachineName + additionalUri, "", jwtToken, SetupQdsHeaderValue(version)))
             {
                 try
                 {
@@ -109,25 +140,22 @@ namespace qlik_qv_export
                     {
                         PrintMessage("Success - Upload document " + fileName + " to engine", false);
                     }
-
-                    var responseContent = await response.Content.ReadAsStringAsync() ?? "{}";
-                    EngineDoc result = JsonConvert.DeserializeObject<EngineDoc>(responseContent);
-                    return result;
+                    return await response.Content.ReadAsStringAsync() ?? "{}";
                 }
                 catch (Exception e)
                 {
-                    PrintMessage("Failed to import app " + fileName + " to engine. Exception: " + e.Message, false);
-                    return null;
+                    PrintMessage("Failed to import " + fileName + " to engine. Exception: " + e.Message, false);
+                    return string.Empty;
                 }
             }
         }
 
-        private async Task<CollectionEntity> CreateEngineItem(EngineDoc doc, string jwtToken, string multiCloudMachineName, string docName)
+        private async Task<CollectionEntity> CreateEngineItem(EngineDoc doc, string jwtToken, string multiCloudMachineName, string docName, string version)
         {
             CollectionEntity result = null;
             try
             {
-                result = await GetItem(jwtToken, multiCloudMachineName, doc.Attributes.AppId, "qvapp");
+                result = await GetItem(jwtToken, multiCloudMachineName, doc.Attributes.AppId, "qvapp", version);
 
                 if (result != null && result.Id != null)
                 {
@@ -136,7 +164,7 @@ namespace qlik_qv_export
 
                 string additionalUri = "items";
                 string jsonRequest = SetupJson(doc, docName);
-                using (HttpResponseMessage createItemResponse = await SetupAndSendRequest(HttpMethod.Post, multiCloudMachineName + additionalUri, jsonRequest, jwtToken))
+                using (HttpResponseMessage createItemResponse = await SetupAndSendRequest(HttpMethod.Post, multiCloudMachineName + additionalUri, jsonRequest, jwtToken, SetupQdsHeaderValue(version)))
                 {
                     if (createItemResponse != null && createItemResponse.StatusCode == HttpStatusCode.NotFound)
                     {
@@ -168,18 +196,25 @@ namespace qlik_qv_export
             return documentId.ToString();
         }
 
-        private async Task<CollectionEntity> GetItem(string jwtToken, string multiCloudMachineName, string resourceId, string resourceType)
+        public Dictionary<string, string> SetupQdsHeaderValue(string version)
         {
-            string additionalUri = "items?resourceType=" + resourceType + "&resourceId=" + resourceId;
-            return await GenericGet(jwtToken, multiCloudMachineName, additionalUri);
+            Dictionary<string, string> headerValues = new Dictionary<string, string>();
+            headerValues.Add("UserAgent", "QDS/" + version);
+            return headerValues;
         }
 
-        private async Task<CollectionEntity> GenericGet(string jwtToken, string multiCloudMachineName, string additionalUri)
+        private async Task<CollectionEntity> GetItem(string jwtToken, string multiCloudMachineName, string resourceId, string resourceType, string version)
+        {
+            string additionalUri = "items?resourceType=" + resourceType + "&resourceId=" + resourceId;
+            return await GenericGet(jwtToken, multiCloudMachineName, additionalUri, version);
+        }
+
+        private async Task<CollectionEntity> GenericGet(string jwtToken, string multiCloudMachineName, string additionalUri, string version)
         {
             ElasticEntityListContainer<CollectionEntity> collectionResponse = null;
             try
             {
-                using (HttpResponseMessage createTagResponse = await SetupAndSendRequest(HttpMethod.Get, multiCloudMachineName + additionalUri, "", jwtToken))
+                using (HttpResponseMessage createTagResponse = await SetupAndSendRequest(HttpMethod.Get, multiCloudMachineName + additionalUri, "", jwtToken, SetupQdsHeaderValue(version)))
                 {
                     if (createTagResponse.StatusCode == HttpStatusCode.OK)
                     {
@@ -199,34 +234,45 @@ namespace qlik_qv_export
             return collectionResponse == null ? null : collectionResponse.Data.FirstOrDefault();
         }
 
-        private async Task<HttpResponseMessage> SetupAndSendRequest(HttpMethod method, string uri, string jsonRequest, string jwtToken, string additionalHeaderName = "", string additionalHeaderValue = "")
+        private async Task<HttpResponseMessage> SetupAndSendRequest(HttpMethod method, string uri, string jsonRequest, string jwtToken, Dictionary<string, string> additionalHeaderValue = null)
         {
             try
             {
-                using (HttpClient cloudClient = new HttpClient())
+                using (HttpRequestMessage request = new HttpRequestMessage(method, uri))
                 {
-                    cloudClient.Timeout = TimeSpan.FromMinutes(10);
-                    using (HttpRequestMessage request = new HttpRequestMessage(method, uri))
+                    if (!string.IsNullOrEmpty(jsonRequest))
                     {
-                        if (!string.IsNullOrEmpty(jsonRequest))
-                        {
-                            request.Content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
-                        }
-
-                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
-                        if (!string.IsNullOrEmpty(additionalHeaderValue))
-                        {
-                            request.Headers.Add(additionalHeaderName, additionalHeaderValue);
-                        }
-                        HttpResponseMessage createItemResponse = await cloudClient.SendAsync(request);
-                        return createItemResponse;
+                        request.Content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
                     }
+
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+                    if (additionalHeaderValue != null)
+                    {
+                        foreach (KeyValuePair<string, string> entry in additionalHeaderValue)
+                        {
+                            request.Headers.Add(entry.Key, entry.Value);
+                        }
+                    }
+                    HttpResponseMessage createItemResponse = await cloudClient.SendAsync(request);
+                    return createItemResponse;
                 }
             }
             catch (Exception e)
             {
                 throw e;
             }
+        }
+
+        private static HttpClientHandler GetHttpClientHandler(string proxyName, string proxyPort)
+        {
+            var handler = new HttpClientHandler();//Will get disposed when httpclient disposes
+            ICredentials credentials = CredentialCache.DefaultCredentials;
+            IWebProxy proxy = new WebProxy(proxyName, Int32.Parse(proxyPort));
+            proxy.Credentials = credentials;
+            handler.DefaultProxyCredentials = credentials;
+            handler.Proxy = proxy;
+
+            return handler;
         }
 
         private JsonSerializerSettings IgnoreNullSetting()

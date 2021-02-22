@@ -9,68 +9,21 @@ namespace qlik_qv_export
 {
     class QlikQvExport
     {
-        private Uri _qms;
         private List<string> links;
         private string delimiter = ";";
-        private string space = string.Empty;
-        private string protocol = "http";
-        private string qvsCluster = string.Empty;
-        private string qvwsMachine = string.Empty;
-        private string category = string.Empty;
-        private string csvFileName = string.Empty;
         private CommunicationSupport commSupport;
         private IQMS client;
 
-        public QlikQvExport(string[] args, CommunicationSupport commSup, IQMS qmsClient)
+        public QlikQvExport(CommunicationSupport commSup, IQMS qmsClient)
         {
             client = qmsClient;
             commSupport = commSup;
-
-            try
-            {
-                foreach (var arg in args)
-                {
-                    string parameter = arg.Substring(0, arg.IndexOf('='));
-                    string parameterValue = arg.Substring(arg.LastIndexOf('=') + 1);
-
-                    switch (parameter.ToLower())
-                    {
-                        case "-space":
-                            space = parameterValue;
-                            break;
-                        case "-protocol":
-                            protocol = parameterValue;
-                            break;
-                        case "-qvscluster":
-                            qvsCluster = parameterValue;
-                            break;
-                        case "-qvwsmachine":
-                            qvwsMachine = parameterValue;
-                            break;
-                        case "-category":
-                            category = parameterValue;
-                            break;
-                        case "-filename":
-                            csvFileName = parameterValue;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                commSupport.PrintMessage("Exception when reading parameters. Run help command for information about usage", true);
-            }
-
-            
-            protocol = string.IsNullOrEmpty(protocol) ? "http" : protocol;
-            _qms = new Uri(protocol + "://localhost:4799/QMS/Service");
-            links = new List<string>();
-            ExportLinks();
         }
-        public void ExportLinks()
+
+        public void ExportLinks(string space, string protocol, string qvsCluster, string qvwsMachine, string category, string csvFileName)
         {
+            protocol = string.IsNullOrEmpty(protocol) ? "http" : protocol;
+            links = new List<string>();
             try
             {
                 if (client != null)
@@ -115,7 +68,7 @@ namespace qlik_qv_export
                             ComposeDocumentLinkUrl(mountName, userDoc.RelativePath, qvwsUrl, userDoc.Name, qvsCluster, space, "");
                         }
                     }
-                    WriteToCSVFile();
+                    WriteToCSVFile(csvFileName);
                 }
                 else
                 {
@@ -128,7 +81,7 @@ namespace qlik_qv_export
             }
         }
 
-        private void WriteToCSVFile()
+        private void WriteToCSVFile(string csvFileName)
         {
             if (links.Count > 1)
             {

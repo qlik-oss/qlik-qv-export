@@ -1,15 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>-mode=link -filename=C:/MyQvLinks.csv -qvwsmachine=QVWS%40selun-hmd3 -cloudUrl="https://rd-39779.qliktech.com/" -category=Default -qvscluster=QVS%40selun-hmd3</StartArguments>
+    <StartArguments>
+    </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <StartArguments>-help</StartArguments>
+    <StartArguments>
+    </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <StartArguments>-mode=migrate -uploadpath=C:\Users\hmd\Desktop\QvMigToolFiles\ALL_R&amp;D_AD.QVW.zip -cloudUrl=https://rd-39779.qliktech.com/ -documentFolder=MountGay -qvscluster=QVS_Clust -appId=1aa943eb-725f-41f7-bdee-ebaf93aad48c -api_key=eyJhbGciOiJFUzM4NCIsImtpZCI6IjdlZjdkM2YxLTEyN2MtNDI3Mi1iMWU1LWU3MTQ0ZmExOGIwOCIsInR5cCI6IkpXVCJ9.eyJzdWJUeXBlIjoidXNlciIsInRlbmFudElkIjoiZHRMNHU1dWNwekVIbWJ4VVBtMzZGMmo0OXZwWUgyMEsiLCJqdGkiOiI3ZWY3ZDNmMS0xMjdjLTQyNzItYjFlNS1lNzE0NGZhMThiMDgiLCJhdWQiOiJxbGlrLmFwaSIsImlzcyI6InFsaWsuYXBpL2FwaS1rZXlzIiwic3ViIjoiRW5EMUMwUldURDdOZk0yR1dvTUhrTlJGTGx3RWE2MTYifQ.ZOBNkp6hvL7Q36fI20hxuu0wN6XDAAXTZdhl3QO-4I7VjgTBWH64E67BwE54fhHwm46Qm1pTFCAZlJ2DjVrXpweQXtiepNxn7E1GlvJZWTr937zSeFWcmDB0o_4lK-kP</StartArguments>
+    <StartArguments>
+    </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <StartArguments>-mode=migrate -uploadpath="C:\Users\jdt\Desktop\ALL_R&amp;D_AD.QVW.zip" -cloudUrl=https://rd-39779.qliktech.com/ -appId=2e5a3aee-577f-4d56-96a1-6b70710e7b86 -api_key=eyJhbGciOiJFUzM4NCIsImtpZCI6IjE4MTkxMjkyLWVjYmYtNDdhNS04YzI4LWQ1NzY1ODYyOTE0YyIsInR5cCI6IkpXVCJ9.eyJzdWJUeXBlIjoidXNlciIsInRlbmFudElkIjoiZHRMNHU1dWNwekVIbWJ4VVBtMzZGMmo0OXZwWUgyMEsiLCJqdGkiOiIxODE5MTI5Mi1lY2JmLTQ3YTUtOGMyOC1kNTc2NTg2MjkxNGMiLCJhdWQiOiJxbGlrLmFwaSIsImlzcyI6InFsaWsuYXBpL2FwaS1rZXlzIiwic3ViIjoiRW5EMUMwUldURDdOZk0yR1dvTUhrTlJGTGx3RWE2MTYifQ.RwQA9r8ASeibgMuHx-VjbHLCeR269uX5v7pgCzJiu51ZqvgVUutzQCeXdjQ8gmfej1DSvXnUFR1hFVTlqKNZ5xqnr_De2YYExihj-tn8mn0IxjXQLj_ZeWU5vJXC8FSy</StartArguments>
+    <StartArguments>
+    </StartArguments>
   </PropertyGroup>
 </Project>

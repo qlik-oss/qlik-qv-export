@@ -79,7 +79,7 @@ The tool consist of the following files that have to be present in the same fold
 
 ## Prerequisites and Limitations:
 1. The tool has to run on the same machine as the QlikView Management Service.
-2. The account running the tool must be added to Windows Group "QlikView API Management".
+2. The account running the tool must be added to Windows Group "Qlikview Management API".
 3. https/ssl for QMS is not supported.
 4. Follow these instructions to get a temporary API Key https://help.qlik.com/en-US/sense-admin/November2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoK/Administer_QSEoK/mc-generate-api-keys.htm.
 5. Modifying maxBufferSize and maxReceivedMessageSize could be needed if the number of QlikView links are too big. If this is the case the tool will throw the following exception:

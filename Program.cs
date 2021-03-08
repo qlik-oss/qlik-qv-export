@@ -38,7 +38,7 @@ namespace qlik_qv_export
         {
             string parameter = string.Empty;
             string parameterValue = string.Empty;
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+            string appDataPath = AppDomain.CurrentDomain.BaseDirectory;
             string logPath = Path.Combine(appDataPath, "qlik_qv_export_log.txt");
             List<string> parameterList = new List<string>();
 
@@ -105,20 +105,21 @@ namespace qlik_qv_export
                             break;
                     }
                 }
-                commSupport = new CommunicationSupport(proxyname, proxyport);
-                commSupport.PrintMessage("Mode parameter set to " + mode, false);
+                commSupport = new CommunicationSupport(proxyname, proxyport, logPath);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue +  "Exception " + e.Message + " Run help command for information about usage", true);
+                File.WriteAllText(logPath, DateTime.Now.ToString() + "\t Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + "Exception " + e.Message + " Run help command for information about usage");
+                Console.WriteLine("Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + "Exception " + e.Message + " Run help command for information about usage", true);
                 Console.WriteLine("Press any key to exit");
                 Console.ReadKey();
                 Environment.Exit(0);
             }
             finally
             {
+                File.AppendAllText(logPath, DateTime.Now.ToString() + "\t" + "Following parameters are set: " + Environment.NewLine);
+                parameterList.ForEach(x => File.AppendAllText(logPath, DateTime.Now.ToString() + "\t" + x + Environment.NewLine));
                 Console.WriteLine("Parameter log written to " + logPath, true);
-                File.WriteAllLines(logPath, parameterList.ToArray());
             }
             
             if (mode.Equals("link"))
@@ -145,25 +146,21 @@ namespace qlik_qv_export
             {
                 commSupport.PrintMessage("cloudurl, uploadpath, appId and api_key are required parameters", true);
             }
-            string logPath = string.Empty;
+            
             string result;
             try
             {
-                logPath = uploadpath;
                 commSupport.PrintMessage("Ready to migrate", false);
                 result = MigrateFiles(commSupport, uploadpath, proxyname, proxyport);
                 if (!string.IsNullOrEmpty(handledDirectory)) //Check result too before copy to handle dir?
                 {
-                    logPath = handledDirectory;
                     CopyUploadedFileToHandledDirectory(handledDirectory, uploadpath);
                 }
-                string[] toFile = { "Success", result };
-                File.WriteAllLines(logPath + "log.txt", toFile);
+                commSupport.PrintMessage("Success " + result, true);
             }
             catch (Exception e)
             {
                 commSupport.PrintMessage("Exception when uploading file to cloud: " + e.Message, true);
-                File.WriteAllText(logPath + "log.txt", "Failed " + e.Message);
             }
         }
 

@@ -31,6 +31,7 @@ namespace qlik_qv_export
     {
         private static HttpClient cloudClient { get; set; }
         private readonly static object httpClientLock = new object();
+        private string LogPath;
 
         private static void CreateHttpClient(string proxyName, string proxyPort)
         {
@@ -53,8 +54,9 @@ namespace qlik_qv_export
             }
         }
 
-        public CommunicationSupport(string proxyName, string proxyPort)
+        public CommunicationSupport(string proxyName, string proxyPort, string logPath)
         {
+            LogPath = logPath;
             CreateHttpClient(proxyName, proxyPort);
         }
 
@@ -319,12 +321,23 @@ namespace qlik_qv_export
 
         public void PrintMessage(string message, bool exit)
         {
-            Console.WriteLine(message);
-            if (exit)
+            try
             {
+                File.AppendAllText(LogPath, DateTime.Now.ToString() + "\t" + message + Environment.NewLine);
+                if(exit)
+                {
+                    Environment.Exit(0);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Failed to write to log " + LogPath + " Exception: " +e.Message);
                 Console.WriteLine("Press any key to continue");
                 Console.ReadKey();
-                Environment.Exit(0);
+                if (exit)
+                {
+                    Environment.Exit(0);
+                }
             }
         }
     }

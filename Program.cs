@@ -109,7 +109,7 @@ namespace qlik_qv_export
             }
             catch (Exception e)
             {
-                File.WriteAllText(logPath, DateTime.Now.ToString() + "\t Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + "Exception " + e.Message + " Run help command for information about usage");
+                File.WriteAllText(logPath, DateTime.Now.ToString() + "\t Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + "Exception " + e.Message + " Run help command for information about usage" + Environment.NewLine);
                 Console.WriteLine("Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + "Exception " + e.Message + " Run help command for information about usage", true);
                 Console.WriteLine("Press any key to exit");
                 Console.ReadKey();

@@ -146,13 +146,13 @@ namespace qlik_qv_export
             {
                 commSupport.PrintMessage("cloudurl, uploadpath, appId and api_key are required parameters", true);
             }
-            
+
             string result;
             try
             {
                 commSupport.PrintMessage("Ready to migrate", false);
                 result = MigrateFiles(commSupport, uploadpath, proxyname, proxyport);
-                if (!string.IsNullOrEmpty(handledDirectory)) //Check result too before copy to handle dir?
+                if (!string.IsNullOrEmpty(handledDirectory) && !string.IsNullOrEmpty(result))
                 {
                     CopyUploadedFileToHandledDirectory(handledDirectory, uploadpath);
                 }

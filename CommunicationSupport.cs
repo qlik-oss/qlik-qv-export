@@ -83,6 +83,10 @@ namespace qlik_qv_export
                     await tusClient.UploadAsync(url, l_FileStream, cloudChunkSize, this, proxyName, proxyPort);
                 }
                 responseContent = await ImportApp(jwtToken, multiCloudMachineName, sourceDocumentId, fileNameAndPath, url, mode, appId, version);
+                if(string.IsNullOrEmpty(responseContent))
+                {
+                    return string.Empty;
+                }
 
                 EngineDoc result = JsonConvert.DeserializeObject<EngineDoc>(responseContent);
 

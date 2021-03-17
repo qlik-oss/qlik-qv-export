@@ -149,7 +149,7 @@ namespace qlik_qv_export
             {
                 if (commSup != null)
                 {
-                    commSup.PrintMessage("WebException when posting file to TCS " + ex.Message + ex.InnerException, true);
+                    commSup.PrintMessage("WebException when posting file to TCS " + ex.Message, true);
                 }
                 throw new TusException(ex);
             }

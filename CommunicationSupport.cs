@@ -335,7 +335,7 @@ namespace qlik_qv_export
             }
             catch(Exception e)
             {
-                Console.WriteLine("Failed to write to log " + LogPath + " Exception: " +e.Message);
+                Console.WriteLine("Failed to write " + message + " to log " + LogPath + " Exception: " + e.Message);
                 Console.WriteLine("Press any key to continue");
                 Console.ReadKey();
                 if (exit)

@@ -147,16 +147,19 @@ namespace qlik_qv_export
                 commSupport.PrintMessage("cloudurl, uploadpath, appId and api_key are required parameters", true);
             }
 
-            string result;
             try
             {
                 commSupport.PrintMessage("Ready to migrate", false);
-                result = MigrateFiles(commSupport, uploadpath, proxyname, proxyport);
-                if (!string.IsNullOrEmpty(handledDirectory) && !string.IsNullOrEmpty(result))
+                string result = MigrateFiles(commSupport, uploadpath, proxyname, proxyport);
+                if(string.IsNullOrEmpty(result))
+                {
+                    commSupport.PrintMessage("Failed to migrate " + uploadpath, true);
+                }
+                else if (!string.IsNullOrEmpty(handledDirectory))
                 {
                     CopyUploadedFileToHandledDirectory(handledDirectory, uploadpath);
                 }
-                commSupport.PrintMessage("Success " + result, true);
+                commSupport.PrintMessage("Migration of " + uploadpath + " succeeded", true);
             }
             catch (Exception e)
             {
@@ -171,11 +174,11 @@ namespace qlik_qv_export
             {
                 string targetFolder = handledDirectory + @"\" + Path.GetFileName(uploadpath);
                 File.Copy(uploadpath, targetFolder, true);
-                commSupport.PrintMessage("File copied to " + handledDirectory, true);
+                commSupport.PrintMessage("File copied to " + handledDirectory, false);
             }
             catch (Exception e)
             {
-                commSupport.PrintMessage("Exception when copying file: " + e.Message, true);
+                throw e;
             }
         }
 

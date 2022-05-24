@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://ws.qliktech.com/ANY/11/" elementFormDefault="qualified" targetNamespace="http://ws.qliktech.com/ANY/11/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/PIX" />
+  <xs:import schemaLocation="http://selun-hmd3:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
+  <xs:import schemaLocation="http://selun-hmd3:4799/QMS/Service?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/PIX" />
   <xs:element name="Ping">
     <xs:complexType>
       <xs:sequence />

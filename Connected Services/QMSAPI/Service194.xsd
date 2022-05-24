@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" />
+  <xs:import schemaLocation="http://selun-hmd3:4799/QMS/Service?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" />
   <xs:complexType name="ArrayOfFieldContent">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="FieldContent" nillable="true" type="tns:FieldContent" />

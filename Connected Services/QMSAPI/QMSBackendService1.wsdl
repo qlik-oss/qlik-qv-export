@@ -112,22 +112,22 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/11/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl0" />
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl1" />
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/2/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl2" />
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/3/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl3" />
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/4/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl4" />
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/5/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl5" />
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/6/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl6" />
-  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/7/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl7" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/11/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl8" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl9" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/2/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl10" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/3/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl11" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/4/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl12" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/5/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl13" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/6/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl14" />
-  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/7/" location="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl15" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/11/" location="http://localhost:4799/QMS/Service?wsdl=wsdl0" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/" location="http://localhost:4799/QMS/Service?wsdl=wsdl1" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/2/" location="http://localhost:4799/QMS/Service?wsdl=wsdl2" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/3/" location="http://localhost:4799/QMS/Service?wsdl=wsdl3" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/4/" location="http://localhost:4799/QMS/Service?wsdl=wsdl4" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/5/" location="http://localhost:4799/QMS/Service?wsdl=wsdl5" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/6/" location="http://localhost:4799/QMS/Service?wsdl=wsdl6" />
+  <wsdl:import namespace="http://ws.qliktech.com/QMS/12/7/" location="http://localhost:4799/QMS/Service?wsdl=wsdl7" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/11/" location="http://localhost:4799/QMS/Service?wsdl=wsdl8" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/" location="http://localhost:4799/QMS/Service?wsdl=wsdl9" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/2/" location="http://localhost:4799/QMS/Service?wsdl=wsdl10" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/3/" location="http://localhost:4799/QMS/Service?wsdl=wsdl11" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/4/" location="http://localhost:4799/QMS/Service?wsdl=wsdl12" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/5/" location="http://localhost:4799/QMS/Service?wsdl=wsdl13" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/6/" location="http://localhost:4799/QMS/Service?wsdl=wsdl14" />
+  <wsdl:import namespace="http://ws.qliktech.com/ANY/12/7/" location="http://localhost:4799/QMS/Service?wsdl=wsdl15" />
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_IQMS" type="i0:IQMS">
     <wsp:PolicyReference URI="#BasicHttpBinding_IQMS_policy" />
@@ -12135,52 +12135,52 @@
   </wsdl:binding>
   <wsdl:service name="QMSBackendService">
     <wsdl:port name="BasicHttpBinding_IQMS" binding="tns:BasicHttpBinding_IQMS">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQMS1" binding="tns:BasicHttpBinding_IQMS1">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQMS2" binding="tns:BasicHttpBinding_IQMS2">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQMS3" binding="tns:BasicHttpBinding_IQMS3">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQMS4" binding="tns:BasicHttpBinding_IQMS4">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQMS5" binding="tns:BasicHttpBinding_IQMS5">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQMS6" binding="tns:BasicHttpBinding_IQMS6">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQMS7" binding="tns:BasicHttpBinding_IQMS7">
-      <soap:address location="http://selun-hmd3:4799/QMS/Service" />
+      <soap:address location="http://localhost:4799/QMS/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService" binding="tns:BasicHttpBinding_IQTService">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService1" binding="tns:BasicHttpBinding_IQTService1">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService2" binding="tns:BasicHttpBinding_IQTService2">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService3" binding="tns:BasicHttpBinding_IQTService3">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService4" binding="tns:BasicHttpBinding_IQTService4">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService5" binding="tns:BasicHttpBinding_IQTService5">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService6" binding="tns:BasicHttpBinding_IQTService6">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IQTService7" binding="tns:BasicHttpBinding_IQTService7">
-      <soap:address location="http://selun-hmd3:4799/ANY/Service" />
+      <soap:address location="http://localhost:4799/ANY/Service" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

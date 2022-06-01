@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://selun-hmd3:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://selun-hmd3:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
   <xs:complexType name="ArrayOfAssignedNamedCAL">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="AssignedNamedCAL" nillable="true" type="tns:AssignedNamedCAL" />

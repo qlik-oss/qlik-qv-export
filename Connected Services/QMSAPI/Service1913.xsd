@@ -1,0 +1,1901 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.qliktech.com/QMS/12/5/" elementFormDefault="qualified" targetNamespace="http://ws.qliktech.com/QMS/12/5/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/PIX" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" />
+  <xs:element name="SaveCALConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" minOccurs="0" name="calConfiguration" nillable="true" type="q1:CALConfiguration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCALConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCALInfoForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q2:guid" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCALInfoForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" minOccurs="0" name="GetCALInfoForUserResult" nillable="true" type="q3:UserCALs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSPerformanceData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q4:guid" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="target" type="q5:QueryTarget" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSPerformanceDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetQVSPerformanceDataResult" nillable="true" type="q6:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSUtilizationData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q7:guid" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="target" type="q8:QueryTarget" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSUtilizationDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetQVSUtilizationDataResult" nillable="true" type="q9:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSDocumentsPerUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q10:guid" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="target" type="q11:QueryTarget" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSDocumentsPerUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetQVSDocumentsPerUserResult" nillable="true" type="q12:ArrayOfKeyValueOfstringint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSDocumentsAndUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q13:guid" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="target" type="q14:QueryTarget" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSDocumentsAndUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetQVSDocumentsAndUsersResult" nillable="true" type="q15:ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerObjectMetaDataForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q16:guid" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerObjectMetaDataForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetServerObjectMetaDataForUserResult" nillable="true" type="q17:ArrayOfServerObjectMetaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerObjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q18:guid" />
+        <xs:element minOccurs="0" name="documentName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerObjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetServerObjectsResult" nillable="true" type="q19:ArrayOfServerObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteServerObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q20:guid" />
+        <xs:element minOccurs="0" name="documentName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteServerObjectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TakeServerObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q21:guid" />
+        <xs:element minOccurs="0" name="documentName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TakeServerObjectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LookupNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dscID" type="q22:guid" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="names" nillable="true" type="q23:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LookupNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="LookupNamesResult" nillable="true" type="q24:ArrayOfDirectoryServiceObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDSResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dscID" type="q25:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDSResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDSResourcesResult" nillable="true" type="q26:ArrayOfDSResource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResolveUserGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dscID" type="q27:guid" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResolveUserGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResolveUserGroupsResult" nillable="true" type="q28:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableDSProviders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dscID" type="q29:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableDSProvidersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetAvailableDSProvidersResult" nillable="true" type="q30:ArrayOfDSProvider" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableDirectories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dscID" type="q31:guid" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableDirectoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAvailableDirectoriesResult" nillable="true" type="q32:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQVWSAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvwsID" type="q33:guid" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="authenticationType" nillable="true" type="q34:QVWSAuthentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQVWSAuthenticationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVWSAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvwsID" type="q35:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVWSAuthenticationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetQVWSAuthenticationResult" nillable="true" type="q36:QVWSAuthentication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectServer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvwsID" type="q37:guid" />
+        <xs:element minOccurs="0" name="document" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectServerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelectServerResult" nillable="true" type="xs:anyURI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectServerEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvwsID" type="q38:guid" />
+        <xs:element minOccurs="0" name="document" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectServerExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelectServerExResult" nillable="true" type="xs:anyURI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetServices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q39:guid" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="serviceTypes" type="q40:ServiceTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetServicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="RemoteGetServicesResult" nillable="true" type="q41:ArrayOfServiceInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetSourceDocumentFolders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q42:guid" />
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQdsId" type="q43:guid" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q44:DocumentFolderScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetSourceDocumentFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="RemoteGetSourceDocumentFoldersResult" nillable="true" type="q45:ArrayOfDocumentFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetSourceDocumentNodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q46:guid" />
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQdsId" type="q47:guid" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderId" type="q48:guid" />
+        <xs:element minOccurs="0" name="relativePath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetSourceDocumentNodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="RemoteGetSourceDocumentNodesResult" nillable="true" type="q49:ArrayOfDocumentNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetTaskListForDocID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q50:guid" />
+        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="documentId" type="q51:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetTaskListForDocIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="RemoteGetTaskListForDocIDResult" nillable="true" type="q52:ArrayOfTaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetTasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q53:guid" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQdsId" type="q54:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="RemoteGetTasksResult" nillable="true" type="q55:ArrayOfTaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetDocumentTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q56:guid" />
+        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskId" type="q57:guid" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q58:DocumentTaskScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteGetDocumentTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="RemoteGetDocumentTaskResult" nillable="true" type="q59:DocumentTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportDocumentTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q60:guid" />
+        <xs:element xmlns:q61="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteDocumentTaskId" type="q61:guid" />
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="destinationQdsId" type="q62:guid" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="destinationDocument" nillable="true" type="q63:DocumentNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportDocumentTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportAllDocumentTasksForQds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQmsId" type="q64:guid" />
+        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="remoteQdsId" type="q65:guid" />
+        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="destinationQdsId" type="q66:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportAllDocumentTasksForQdsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitiateUploadExtensionObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsId" type="q67:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitiateUploadExtensionObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="InitiateUploadExtensionObjectResult" nillable="true" type="q68:ExtensionUploadHandle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WriteExtensionObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="handle" nillable="true" type="q69:ExtensionUploadHandle" />
+        <xs:element minOccurs="0" name="chunk" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WriteExtensionObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="WriteExtensionObjectResult" nillable="true" type="q70:ExtensionUploadHandle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseAndInstallExtensionObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="handle" nillable="true" type="q71:ExtensionUploadHandle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseAndInstallExtensionObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="CloseAndInstallExtensionObjectResult" nillable="true" type="q72:ArrayOfQVSMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShutdownDistributionService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q73:guid" />
+        <xs:element xmlns:q74="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="nodeID" type="q74:guid" />
+        <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShutdownDistributionServiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQMSVersion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQMSVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetQMSVersionResult" nillable="true" type="q75:QMSVersion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsQdsLoadbalancerConfigured">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsQdsLoadbalancerConfiguredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsQdsLoadbalancerConfiguredResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasAnyDistributionGroups">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasAnyDistributionGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HasAnyDistributionGroupsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QdsLoadBalancerConfigHasErrors">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QdsLoadBalancerConfigHasErrorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QdsLoadBalancerConfigHasErrorsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDistributionGroups">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDistributionGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllDistributionGroupsResult" nillable="true" type="q76:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistributionGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsId" type="q77:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistributionGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDistributionGroupsResult" nillable="true" type="q78:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistributionGroupsDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsId" type="q79:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDistributionGroupsDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDistributionGroupsDefinitionResult" nillable="true" type="q80:ArrayOfDistributionConfigValues" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateFolderId">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTemplateFolderIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetTemplateFolderIdResult" nillable="true" type="q81:ArrayOfguid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMissingDistributionGroups">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllMissingDistributionGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllMissingDistributionGroupsResult" nillable="true" type="q82:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVPRAPISettings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVPRAPISettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetQVPRAPISettingsResult" nillable="true" type="q83:QVPRAPISettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQVPRAPISettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="qvprSettings" nillable="true" type="q84:QVPRAPISettings" />
+        <xs:element minOccurs="0" name="doMigrate" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQVPRAPISettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetQVPRAPISettingsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDSCAPISettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dscID" type="q85:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDSCAPISettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDSCAPISettingsResult" nillable="true" type="q86:DirectoryServiceConnectorAPISettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDSCAPISettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="dscSettings" nillable="true" type="q87:DirectoryServiceConnectorAPISettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDSCAPISettingsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDSPAPISettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dscID" type="q88:guid" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="dspType" type="q89:DSPType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDSPAPISettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDSPAPISettingsResult" nillable="true" type="q90:DSPSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDSPAPISettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="dspSettings" nillable="true" type="q91:DSPSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDSPAPISettingsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateServices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="serviceURLs" nillable="true" type="q92:ArrayOfKeyValueOfguidanyURI" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="serviceType" type="q93:ServiceTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateServicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/PIX" minOccurs="0" name="UpdateServicesResult" nillable="true" type="q94:ServiceUpdateStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVWSSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvwsID" type="q95:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVWSSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetQVWSSettingResult" nillable="true" type="q96:QVWSSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQVWSSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvwsID" type="q97:guid" />
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="qvwsSetting" nillable="true" type="q98:QVWSSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetQVWSSettingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentFolderAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q99:guid" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/PIX" minOccurs="0" name="folderType" type="q100:ePermissionObjectType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentFolderAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentFolderAdministratorForEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q101:guid" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentFolderAdministratorForEmailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocumentAdministrators">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q102:guid" />
+        <xs:element xmlns:q103="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="userNames" nillable="true" type="q103:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocumentAdministratorsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFolderAdministrators">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q104:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFolderAdministratorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDocumentFolderAdministratorsResult" nillable="true" type="q105:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserDocumentFolderAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserDocumentFolderAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsUserDocumentFolderAdministratorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsDocumentFolderAdministrator">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsDocumentFolderAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsDocumentFolderAdministratorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsDocumentFolderAdministratorForType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/PIX" minOccurs="0" name="objectType" type="q106:ePermissionObjectType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsDocumentFolderAdministratorForTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsDocumentFolderAdministratorForTypeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsDocumentFolderAdministratorForFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q107:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsDocumentFolderAdministratorForFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsDocumentFolderAdministratorForFolderResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserDocumentFolderAdministratorForFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q108="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q108:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsUserDocumentFolderAdministratorForFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsUserDocumentFolderAdministratorForFolderResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDocumentAdministratorEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q109:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDocumentAdministratorEmailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewLicense">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewLicenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetNewLicenseResult" nillable="true" type="q110:LicenseDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNewLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="license" nillable="true" type="q111:License" />
+        <xs:element xmlns:q112="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="serviceID" type="q112:guid" />
+        <xs:element minOccurs="0" name="licenseServer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNewLicenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="SaveNewLicenseResult" nillable="true" type="q113:LicenseDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNewLicenseEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="license" nillable="true" type="q114:License" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNewLicenseExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="SaveNewLicenseExResult" nillable="true" type="q115:LicenseDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssignedUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="additionalFilter" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssignedUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetAssignedUsersResult" nillable="true" type="q116:Assignments" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAssignedUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="assignments" nillable="true" type="q117:ArrayOfAssignedUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAssignedUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="SetAssignedUsersResult" nillable="true" type="q118:ArrayOfAssignedUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAssignedUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="assignedUsers" nillable="true" type="q119:ArrayOfAssignedUserDeletion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAssignedUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAssignedUsersResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseOverview">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseOverviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetLicenseOverviewResult" nillable="true" type="q120:LicenseOverview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLicenseServerStatus">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckLicenseServerStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckLicenseServerStatusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSLicenseInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q121:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSLicenseInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="GetQVSLicenseInfoResult" type="q122:LicenseModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDefaultDocumentTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsId" type="q123:guid" />
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="document" nillable="true" type="q124:DocumentNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDefaultDocumentTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="CreateDefaultDocumentTaskResult" nillable="true" type="q125:DocumentTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="license" nillable="true" type="q126:License" />
+        <xs:element xmlns:q127="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="serviceID" type="q127:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveLicenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveLicenseResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="licenseType" type="q128:LicenseType" />
+        <xs:element xmlns:q129="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="serviceID" type="q129:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetLicenseResult" nillable="true" type="q130:License" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="licenseType" type="q131:LicenseType" />
+        <xs:element xmlns:q132="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="serviceID" type="q132:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearLicenseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="licenseType" type="q133:LicenseType" />
+        <xs:element xmlns:q134="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="serviceID" type="q134:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLicenseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="license" nillable="true" type="q135:License" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateLicenseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceHasValidLicense">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="licenseType" type="q136:LicenseType" />
+        <xs:element xmlns:q137="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="serviceID" type="q137:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceHasValidLicenseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ServiceHasValidLicenseResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q138:guid" />
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q139:QVSSettingsScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQVSSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetQVSSettingsResult" nillable="true" type="q140:QVSSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveQVSSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="qvsSettings" nillable="true" type="q141:QVSSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveQVSSettingsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="serviceTypes" type="q142:ServiceTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetServicesResult" nillable="true" type="q143:ArrayOfServiceInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReloadEngineServices">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReloadEngineServicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetReloadEngineServicesResult" nillable="true" type="q144:ArrayOfServiceInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearQVSCache">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="objects" type="q145:QVSCacheObjects" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearQVSCacheResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQDSSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q146:guid" />
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="scope" type="q147:QDSSettingsScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQDSSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetQDSSettingsResult" nillable="true" type="q148:QDSSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveQDSSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="qdsSettings" nillable="true" type="q149:QDSSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveQDSSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveQDSSettingsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDistributionServiceWorkorder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q150:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDistributionServiceWorkorderResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsPublisherQDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q151:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsPublisherQDSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsPublisherQDSResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q152:guid" />
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q153:DocumentFolderScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDocumentFolderResult" nillable="true" type="q154:DocumentFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDocumentFolders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q155:guid" />
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q156:DocumentFolderScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDocumentFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetUserDocumentFoldersResult" nillable="true" type="q157:ArrayOfDocumentFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSourceDocumentFolders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q158:guid" />
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q159:DocumentFolderScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSourceDocumentFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetSourceDocumentFoldersResult" nillable="true" type="q160:ArrayOfDocumentFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSourceDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q161:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSourceDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetSourceDocumentsResult" nillable="true" type="q162:ArrayOfDocumentNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSourceDocumentNodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q163:guid" />
+        <xs:element xmlns:q164="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q164:guid" />
+        <xs:element minOccurs="0" name="relativePath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSourceDocumentNodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetSourceDocumentNodesResult" nillable="true" type="q165:ArrayOfDocumentNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q166:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetUserDocumentsResult" nillable="true" type="q167:ArrayOfDocumentNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDocumentNodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q168:guid" />
+        <xs:element xmlns:q169="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="folderID" type="q169:guid" />
+        <xs:element minOccurs="0" name="relativePath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDocumentNodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetUserDocumentNodesResult" nillable="true" type="q170:ArrayOfDocumentNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="documentTask" nillable="true" type="q171:DocumentTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q172:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTasksResult" nillable="true" type="q173:ArrayOfTaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q174:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTaskResult" nillable="true" type="q175:TaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsId" type="q176:guid" />
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="taskType" type="q177:TaskType" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="FindTaskResult" nillable="true" type="q178:TaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindEDX">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindEDXResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="FindEDXResult" nillable="true" type="q179:ArrayOfTaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksForDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="documentID" type="q180:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksForDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTasksForDocumentResult" nillable="true" type="q181:ArrayOfTaskInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="documentTaskID" type="q182:guid" />
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q183:DocumentTaskScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDocumentTaskResult" nillable="true" type="q184:DocumentTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q185="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q185:guid" />
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="taskType" type="q186:TaskType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTaskResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q187="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q187:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbortTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q188:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbortTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestTaskLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q189="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q189:guid" />
+        <xs:element minOccurs="0" name="maxRecords" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestTaskLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetLatestTaskLogResult" nillable="true" type="q190:ArrayOfLogFileEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q191="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q191:guid" />
+        <xs:element xmlns:q192="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="logID" type="q192:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDocumentLogResult" nillable="true" type="q193:ArrayOfLogFileEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskLogHistoryEntries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q194="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q194:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskLogHistoryEntriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTaskLogHistoryEntriesResult" nillable="true" type="q195:ArrayOfTaskLogHistoryEntries" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q196="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q196:guid" />
+        <xs:element xmlns:q197="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="logID" type="q197:guid" />
+        <xs:element minOccurs="0" name="maxRecords" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTaskLogResult" nillable="true" type="q198:ArrayOfLogFileEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="scope" type="q199:CategoriesScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q200:ArrayOfCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlertText">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlertTextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlertTextResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceStatuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q201="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="serviceIDs" nillable="true" type="q201:ArrayOfguid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetServiceStatusesResult" nillable="true" type="q202:ArrayOfServiceStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatusNodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="taskStatusNodeRequests" nillable="true" type="q203:ArrayOfTaskStatusNodeRequest" />
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="filter" nillable="true" type="q204:TaskStatusFilter" />
+        <xs:element xmlns:q205="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q205:TaskStatusScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatusNodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTaskStatusNodesResult" nillable="true" type="q206:ArrayOfTaskStatusNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q207="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="filter" nillable="true" type="q207:TaskStatusFilter" />
+        <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q208:TaskStatusScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q209="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTaskStatusesResult" nillable="true" type="q209:ArrayOfTaskStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q210="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskID" type="q210:guid" />
+        <xs:element xmlns:q211="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q211:TaskStatusScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetTaskStatusResult" nillable="true" type="q212:TaskStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeLimitedServiceKey">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTimeLimitedServiceKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTimeLimitedServiceKeyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionAccessTables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q213="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="scope" type="q213:SectionAccessScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionAccessTablesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q214="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetSectionAccessTablesResult" nillable="true" type="q214:ArrayOfSectionAccessTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionAccessTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q215="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="tableId" type="q215:guid" />
+        <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="scope" type="q216:SectionAccessScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionAccessTableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q217="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetSectionAccessTableResult" nillable="true" type="q217:SectionAccessTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionAccessTableByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tableName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="scope" type="q218:SectionAccessScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionAccessTableByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q219="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetSectionAccessTableByNameResult" nillable="true" type="q219:SectionAccessTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSectionAccessTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="table" nillable="true" type="q220:SectionAccessTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveSectionAccessTableResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSectionAccessTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q221="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="tableId" type="q221:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSectionAccessTableResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TriggerEDXTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q222="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q222:guid" />
+        <xs:element minOccurs="0" name="taskNameOrID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="variableName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q223="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="variableValues" nillable="true" type="q223:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TriggerEDXTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="TriggerEDXTaskResult" nillable="true" type="q224:TriggerEDXTaskResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEDXTaskStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q225="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q225:guid" />
+        <xs:element xmlns:q226="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="executionID" type="q226:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEDXTaskStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q227="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetEDXTaskStatusResult" nillable="true" type="q227:EDXStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartQDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q228="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q228:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartQDSResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QDSNeedRestart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q229="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qdsID" type="q229:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QDSNeedRestartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QDSNeedRestartResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q230="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="configuration" nillable="true" type="q230:QDSDocumentSessionConfiguration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q231="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="CreateSessionResult" nillable="true" type="q231:QDSDocumentSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q232="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="session" nillable="true" type="q232:QDSDocumentSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSelections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q233="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="session" nillable="true" type="q233:QDSDocumentSession" />
+        <xs:element xmlns:q234="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" minOccurs="0" name="fieldContents" nillable="true" type="q234:ArrayOfFieldContent" />
+        <xs:element minOccurs="0" name="lockSelection" type="xs:boolean" />
+        <xs:element minOccurs="0" name="toggleSelect" type="xs:boolean" />
+        <xs:element minOccurs="0" name="returnSelectedList" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSelectionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q235="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" minOccurs="0" name="AddSelectionsResult" nillable="true" type="q235:ArrayOfFieldContent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFieldContentList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q236="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="session" nillable="true" type="q236:QDSDocumentSession" />
+        <xs:element minOccurs="0" name="forFieldName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q237="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="fieldContentType" type="q237:FieldContentType" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+        <xs:element minOccurs="0" name="length" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFieldContentListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q238="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" minOccurs="0" name="GetFieldContentListResult" nillable="true" type="q238:ArrayOfFieldContent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFieldList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q239="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="session" nillable="true" type="q239:QDSDocumentSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFieldListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q240="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" minOccurs="0" name="GetFieldListResult" nillable="true" type="q240:ArrayOfField" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentBookmarkNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q241="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="session" nillable="true" type="q241:QDSDocumentSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentBookmarkNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q242="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDocumentBookmarkNamesResult" nillable="true" type="q242:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearSelections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q243="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="session" nillable="true" type="q243:QDSDocumentSession" />
+        <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q244="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" minOccurs="0" name="clearOptions" type="q244:DocumentClearOptions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearSelectionsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReports">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q245="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="session" nillable="true" type="q245:QDSDocumentSession" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q246="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" minOccurs="0" name="GetReportsResult" nillable="true" type="q246:ArrayOfReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartQVS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q247="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q247:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartQVSResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QVSNeedRestart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q248="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q248:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QVSNeedRestartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QVSNeedRestartResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentMetaData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q249="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="userDocument" nillable="true" type="q249:DocumentNode" />
+        <xs:element xmlns:q250="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q250:DocumentMetaDataScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentMetaDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q251="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="GetDocumentMetaDataResult" nillable="true" type="q251:DocumentMetaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentMetaData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q252="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="documentMetaData" nillable="true" type="q252:DocumentMetaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentMetaDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCALConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q253="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="qvsID" type="q253:guid" />
+        <xs:element xmlns:q254="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" minOccurs="0" name="scope" type="q254:CALConfigurationScope" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCALConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q255="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" minOccurs="0" name="GetCALConfigurationResult" nillable="true" type="q255:CALConfiguration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

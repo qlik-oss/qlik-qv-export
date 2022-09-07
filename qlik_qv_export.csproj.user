@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>-mode="migrate" -cloudurl="https://qvteam.eu.qlik-stage.com/" -appid="1b954c41-753e-49d0-a0cb-3a0ab70a66b2" -api_key="eyJhbGciOiJFUzM4NCIsImtpZCI6IjgyMGE3NWE4LTQyZmQtNDU2Ny1hNTNiLTVkNGUwNzY5NjJhNyIsInR5cCI6IkpXVCJ9.eyJzdWJUeXBlIjoidXNlciIsInRlbmFudElkIjoicnB4enRpZHB0VjBSUzRlR1BTc2FJMFNDS2xKNmgyYWkiLCJqdGkiOiI4MjBhNzVhOC00MmZkLTQ1NjctYTUzYi01ZDRlMDc2OTYyYTciLCJhdWQiOiJxbGlrLmFwaSIsImlzcyI6InFsaWsuYXBpL2FwaS1rZXlzIiwic3ViIjoiRmZoM0ZuOHdmZjMtZWd2bkZlbG5kS2xPRnFsdEJHQmYifQ.kapUU0y69LgXarIaq4vOn6QvRkx6eMdBMmLZP70yCH7HcLlGrtRohSGKmRteyZgnMYSnRWh1kmI6mqWY1uEqavdThJZtbTYwmlvvsoompC1J_pKJ_d4QCfnb2rsfahjS" -uploadpath="C:\Users\icc\source\QlikViewMigrationTool - working\QlikViewMigrationTool\Output\Updated\DV_EVL.qvw.qmt" -handleddirectory="C:\Users\icc\source\QlikViewMigrationTool - working\QlikViewMigrationTool\Output\Uploaded"</StartArguments>
+    <StartArguments>
+    </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartArguments>

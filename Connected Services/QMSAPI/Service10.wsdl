@@ -2,18 +2,18 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ws.qliktech.com/QMS/12/2/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws.qliktech.com/QMS/12/2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://ws.qliktech.com/QMS/12/2/Imports">
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd11" namespace="http://ws.qliktech.com/QMS/12/2/" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd0" namespace="http://ws.qliktech.com/QMS/11/" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Triggers" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/PIX" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" />
-      <xsd:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd10" namespace="http://ws.qliktech.com/QMS/12/" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd11" namespace="http://ws.qliktech.com/QMS/12/2/" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd0" namespace="http://ws.qliktech.com/QMS/11/" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Triggers" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/PIX" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" />
+      <xsd:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd10" namespace="http://ws.qliktech.com/QMS/12/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IQMS2_ClearSelections_InputMessage">

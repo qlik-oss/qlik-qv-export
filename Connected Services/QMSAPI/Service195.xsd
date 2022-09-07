@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://ws.qliktech.com/QMS/12/6/" elementFormDefault="qualified" targetNamespace="http://ws.qliktech.com/QMS/12/6/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" />
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" />
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/PIX" />
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.CALs" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/PIX" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Document" />
   <xs:element name="SaveCALConfiguration">
     <xs:complexType>
       <xs:sequence>

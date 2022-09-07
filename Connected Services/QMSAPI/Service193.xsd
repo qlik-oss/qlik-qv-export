@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PIX.QMSAPI.DataObjects.Enums" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://inban-icc:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:4799/QMS/Service?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:simpleType name="DocumentDownloadAccess">
     <xs:restriction base="xs:string">
       <xs:enumeration value="All" />

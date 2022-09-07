@@ -1747,10 +1747,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IQMS5" contract="QMSAPI.IQMS1" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS5">
+    <endpoint name="BasicHttpBinding_IQMS5" contract="QMSAPI.IQMS1" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS5">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1832,10 +1832,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQMS11" contract="QMSAPI.IQMS" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS11">
+    <endpoint name="BasicHttpBinding_IQMS11" contract="QMSAPI.IQMS" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS11">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1917,10 +1917,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQMS21" contract="QMSAPI.IQMS2" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS21">
+    <endpoint name="BasicHttpBinding_IQMS21" contract="QMSAPI.IQMS2" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS21">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2002,10 +2002,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQMS31" contract="QMSAPI.IQMS3" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS31">
+    <endpoint name="BasicHttpBinding_IQMS31" contract="QMSAPI.IQMS3" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS31">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2087,10 +2087,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQMS41" contract="QMSAPI.IQMS4" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS41">
+    <endpoint name="BasicHttpBinding_IQMS41" contract="QMSAPI.IQMS4" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS41">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2172,10 +2172,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQMS51" contract="QMSAPI.IQMS5" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS51">
+    <endpoint name="BasicHttpBinding_IQMS51" contract="QMSAPI.IQMS5" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS51">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2257,10 +2257,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQMS6" contract="QMSAPI.IQMS6" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS6">
+    <endpoint name="BasicHttpBinding_IQMS6" contract="QMSAPI.IQMS6" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS6">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2342,10 +2342,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQMS7" contract="QMSAPI.IQMS7" bindingType="basicHttpBinding" address="http://inban-icc:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS7">
+    <endpoint name="BasicHttpBinding_IQMS7" contract="QMSAPI.IQMS7" bindingType="basicHttpBinding" address="http://localhost:4799/QMS/Service" bindingConfiguration="BasicHttpBinding_IQMS7">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/QMS/Service</serializedValue>
+          <serializedValue>http://localhost:4799/QMS/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2427,10 +2427,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService5" contract="QMSAPI.IQTService" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService5">
+    <endpoint name="BasicHttpBinding_IQTService5" contract="QMSAPI.IQTService" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService5">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2512,10 +2512,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService11" contract="QMSAPI.IQTService1" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService11">
+    <endpoint name="BasicHttpBinding_IQTService11" contract="QMSAPI.IQTService1" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService11">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2597,10 +2597,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService21" contract="QMSAPI.IQTService2" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService21">
+    <endpoint name="BasicHttpBinding_IQTService21" contract="QMSAPI.IQTService2" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService21">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2682,10 +2682,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService31" contract="QMSAPI.IQTService3" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService31">
+    <endpoint name="BasicHttpBinding_IQTService31" contract="QMSAPI.IQTService3" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService31">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2767,10 +2767,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService41" contract="QMSAPI.IQTService4" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService41">
+    <endpoint name="BasicHttpBinding_IQTService41" contract="QMSAPI.IQTService4" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService41">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2852,10 +2852,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService51" contract="QMSAPI.IQTService5" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService51">
+    <endpoint name="BasicHttpBinding_IQTService51" contract="QMSAPI.IQTService5" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService51">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2937,10 +2937,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService6" contract="QMSAPI.IQTService6" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService6">
+    <endpoint name="BasicHttpBinding_IQTService6" contract="QMSAPI.IQTService6" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService6">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -3022,10 +3022,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IQTService7" contract="QMSAPI.IQTService7" bindingType="basicHttpBinding" address="http://inban-icc:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService7">
+    <endpoint name="BasicHttpBinding_IQTService7" contract="QMSAPI.IQTService7" bindingType="basicHttpBinding" address="http://localhost:4799/ANY/Service" bindingConfiguration="BasicHttpBinding_IQTService7">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://inban-icc:4799/ANY/Service</serializedValue>
+          <serializedValue>http://localhost:4799/ANY/Service</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

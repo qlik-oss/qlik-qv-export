@@ -9,7 +9,8 @@
     </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <StartArguments>-mode="migrate" -cloudurl="https://qvteam.eu.qlik-stage.com/" -appid="1b954c41-753e-49d0-a0cb-3a0ab70a66b2" -api_key="eyJhbGciOiJFUzM4NCIsImtpZCI6ImE1NTFhNDNlLTYwYTUtNGQ0MC1hZmEyLTE5N2UzODNlMzM5OSIsInR5cCI6IkpXVCJ9.eyJzdWJUeXBlIjoidXNlciIsInRlbmFudElkIjoicnB4enRpZHB0VjBSUzRlR1BTc2FJMFNDS2xKNmgyYWkiLCJqdGkiOiJhNTUxYTQzZS02MGE1LTRkNDAtYWZhMi0xOTdlMzgzZTMzOTkiLCJhdWQiOiJxbGlrLmFwaSIsImlzcyI6InFsaWsuYXBpL2FwaS1rZXlzIiwic3ViIjoiRmZoM0ZuOHdmZjMtZWd2bkZlbG5kS2xPRnFsdEJHQmYifQ.OqgaNdd8qkHrk1GCz0SAhHGhzTPq9QL6rE_71f8DCIlrH2gN0ig0UifLQjt2qWiRWgLMt5krWswYDCEIl6N-Zs7xeLcpu-xnu3CZfIfjYeKcDtE-dRSmaC1oYAUz8wxH" -uploadpath="C:\Users\icc\source\QlikViewMigrationTool\QlikViewMigrationTool\Output\Updated\DV_M.QVW.qmt" -handledDirectory="C:\Users\icc\source\QlikViewMigrationTool\QlikViewMigrationTool\Output\Uploaded"</StartArguments>
+    <StartArguments>
+    </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <StartArguments>

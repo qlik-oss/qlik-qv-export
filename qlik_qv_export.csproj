@@ -379,95 +379,95 @@
     <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.UserCALs.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\QMSAPI\Service.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service1.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\QMSAPI\Service10.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service101.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service1010.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service1011.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service1012.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service1013.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service1014.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service1015.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service102.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service103.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service104.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service105.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service106.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service107.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service108.wsdl" />
-    <None Include="Connected Services\QMSAPI\Service109.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service11.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service12.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service13.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service14.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service15.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service18.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\QMSAPI\Service19.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service191.xsd">
+    <None Include="Connected Services\QMSAPI\Service2.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1910.xsd">
+    <None Include="Connected Services\QMSAPI\Service20.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1911.xsd">
+    <None Include="Connected Services\QMSAPI\Service21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1912.xsd">
+    <None Include="Connected Services\QMSAPI\Service22.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1913.xsd">
+    <None Include="Connected Services\QMSAPI\Service23.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1914.xsd">
+    <None Include="Connected Services\QMSAPI\Service24.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1915.xsd">
+    <None Include="Connected Services\QMSAPI\Service3.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1916.xsd">
+    <None Include="Connected Services\QMSAPI\Service4.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1917.xsd">
+    <None Include="Connected Services\QMSAPI\Service5.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1918.xsd">
+    <None Include="Connected Services\QMSAPI\Service6.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1919.xsd">
+    <None Include="Connected Services\QMSAPI\Service7.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service192.xsd">
+    <None Include="Connected Services\QMSAPI\Service8.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\QMSAPI\Service1920.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service1921.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service1922.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service1923.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service1924.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service193.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service194.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service195.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service196.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service197.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service198.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\QMSAPI\Service199.xsd">
+    <None Include="Connected Services\QMSAPI\Service9.wsdl" />
+    <None Include="Connected Services\QMSAPI\Service9.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />

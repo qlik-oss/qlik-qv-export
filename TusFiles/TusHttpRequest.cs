@@ -78,7 +78,7 @@ namespace qlik_qv_export
             _headers = additionalHeaders is null
                 ? new Dictionary<string, string>(1)
                 : new Dictionary<string, string>(additionalHeaders); 
-            _headers.Add(TusHeaderNames.TusResumable, "3.1.2");
+            _headers.Add(TusHeaderNames.TusResumable, "1.0.0");
         }
 
         /// <summary>

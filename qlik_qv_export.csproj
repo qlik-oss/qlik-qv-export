@@ -105,6 +105,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetKeyResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetKeyResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetKeyResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetQvServicesConfigValuesResponse3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetQvServicesConfigValuesResponse4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetQvServicesConfigValuesResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetSystemInformationResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetSystemInformationResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetSystemInformationResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetTimeLimitedRequestKeyResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetTimeLimitedRequestKeyResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.GetTimeLimitedRequestKeyResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.QDSNeedRestartResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.QDSNeedRestartResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.QDSNeedRestartResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.QVSNeedRestartResponse5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.QVSNeedRestartResponse6.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QMSAPI\qlik_qv_export.QMSAPI.QVSNeedRestartResponse7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\QMSAPI\QMSBackendService1.wsdl" />
     <None Include="Connected Services\QMSAPI\qv_doc_exporter.QMSAPI.AssignedUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -333,21 +387,27 @@
     <None Include="Connected Services\QMSAPI\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\QMSAPI\Service10.wsdl" />
     <None Include="Connected Services\QMSAPI\Service10.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\QMSAPI\Service11.wsdl" />
     <None Include="Connected Services\QMSAPI\Service11.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\QMSAPI\Service12.wsdl" />
     <None Include="Connected Services\QMSAPI\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\QMSAPI\Service13.wsdl" />
     <None Include="Connected Services\QMSAPI\Service13.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\QMSAPI\Service14.wsdl" />
     <None Include="Connected Services\QMSAPI\Service14.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\QMSAPI\Service15.wsdl" />
     <None Include="Connected Services\QMSAPI\Service15.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -360,8 +420,26 @@
     <None Include="Connected Services\QMSAPI\Service18.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\QMSAPI\Service19.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\QMSAPI\Service2.wsdl" />
     <None Include="Connected Services\QMSAPI\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\QMSAPI\Service24.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\QMSAPI\Service3.wsdl" />

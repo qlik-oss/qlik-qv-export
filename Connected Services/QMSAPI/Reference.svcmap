@@ -24,36 +24,48 @@
     <MetadataSource Address="http://localhost:4799/QMS/Service" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="b951a041-9ca1-4ef8-be47-383a7e90951e" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd7" />
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="99d965a2-82b3-4c5d-95bc-2f74401c3f2c" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd18" />
-    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="229fd637-31bf-4b3b-b529-615879432a12" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd14" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="ea9eef12-afe3-41b7-9abe-d3e641328489" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl2" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="7c9e26f6-ac72-435a-92d8-a6c65321d0f2" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl15" />
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="079ce057-e535-44a2-9091-7adff2c76e8e" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd3" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="7ac2e2d1-b5fa-47ac-8701-d903997281a3" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd18" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="eb015a5b-c059-4585-9569-a44a65100461" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd0" />
+    <MetadataFile FileName="Service2.wsdl" MetadataType="Wsdl" ID="91a972b2-5a0d-4d0b-b0cf-0576df073531" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl13" />
     <MetadataFile FileName="QMSBackendService1.wsdl" MetadataType="Wsdl" ID="13681c12-b5a0-402b-872e-5b83e9857d1f" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service" />
-    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="2c7de4d7-58bf-4903-b759-9b2584961ddb" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd1" />
-    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="d5d9f31d-d0ec-46d1-9dce-df8e950bb97e" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd0" />
-    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="6c73dcd5-a712-40d6-8d92-887b20fa9c64" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd3" />
-    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="61405d89-df9d-4521-8f89-85a80bb6d9b4" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd12" />
-    <MetadataFile FileName="Service7.xsd" MetadataType="Schema" ID="0f9d4f93-ed4a-43df-a079-44ea088b28c2" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd11" />
-    <MetadataFile FileName="Service8.xsd" MetadataType="Schema" ID="2c3dddf7-7d6f-4a3d-8362-7d6e3d2cdbec" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd9" />
-    <MetadataFile FileName="Service9.xsd" MetadataType="Schema" ID="06480aaa-7b39-4117-ad0a-aaeb6feca6ea" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd8" />
-    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="ccfcc60d-e8cc-45a1-839a-d94992792125" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl0" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="99cec729-e7c8-467d-b1cb-eb1f564063f4" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl2" />
-    <MetadataFile FileName="Service2.wsdl" MetadataType="Wsdl" ID="c5d2f8e3-8793-4c9c-8d8a-40af5a66d8f6" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl3" />
-    <MetadataFile FileName="Service10.xsd" MetadataType="Schema" ID="034bff4e-f203-4502-81e0-b2cd227b3d5a" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd10" />
-    <MetadataFile FileName="Service3.wsdl" MetadataType="Wsdl" ID="307371ee-f04f-4303-8b76-218940179cbd" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl1" />
-    <MetadataFile FileName="Service4.wsdl" MetadataType="Wsdl" ID="6e6b5197-4d33-44f6-a637-85445d55f749" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl6" />
-    <MetadataFile FileName="Service5.wsdl" MetadataType="Wsdl" ID="91b275a6-b77c-4f90-93f6-a0e27d07883c" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl7" />
-    <MetadataFile FileName="Service6.wsdl" MetadataType="Wsdl" ID="f28613a1-3598-4c3b-86fe-cdd43936b3f8" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl4" />
-    <MetadataFile FileName="Service7.wsdl" MetadataType="Wsdl" ID="24d527e7-fe4f-4e97-bcdd-f0073b0aad16" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl5" />
-    <MetadataFile FileName="Service8.wsdl" MetadataType="Wsdl" ID="1b73c1c6-bf5d-4684-88ff-45f02a30c1e9" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl8" />
-    <MetadataFile FileName="Service9.wsdl" MetadataType="Wsdl" ID="8f76dfd7-079e-4be8-ac73-3769439cd151" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?wsdl=wsdl9" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="84d3826b-ab6d-4d88-abcc-acd142817f48" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd16" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="7f30a042-a515-4419-b22d-888f88b2bc3f" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd17" />
-    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="e9b3a5f6-baaa-4304-a696-9f3438e38a48" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd6" />
-    <MetadataFile FileName="Service14.xsd" MetadataType="Schema" ID="95d4c709-9f47-407b-9737-b23f7e35aefa" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd15" />
-    <MetadataFile FileName="Service15.xsd" MetadataType="Schema" ID="59c99cf0-d28c-4d98-a80d-fb20b8f7a0c2" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd2" />
-    <MetadataFile FileName="Service16.xsd" MetadataType="Schema" ID="5d14716a-d2ec-4ffd-95f1-54fa9861409b" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd5" />
-    <MetadataFile FileName="Service17.xsd" MetadataType="Schema" ID="e24c9b2c-7442-4efa-b30d-8a88dbf3dcab" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd13" />
-    <MetadataFile FileName="Service18.xsd" MetadataType="Schema" ID="89b2e4c0-222d-40c3-9519-e1e34c1654f2" SourceId="1" SourceUrl="http://selun-hmd3:4799/QMS/Service?xsd=xsd4" />
+    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="b9eea60a-dcc9-4110-a64e-8816ea903f06" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd6" />
+    <MetadataFile FileName="Service3.wsdl" MetadataType="Wsdl" ID="d3592c43-2191-448e-9cb1-3218c161dbf7" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl8" />
+    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="faadaf92-927e-4bce-9a77-6f2b2ad54aea" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd9" />
+    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="61648efa-a775-430f-b126-f3d4258207e1" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd15" />
+    <MetadataFile FileName="Service4.wsdl" MetadataType="Wsdl" ID="1b733ad6-8261-4afb-8dc9-4226525d440e" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl10" />
+    <MetadataFile FileName="Service5.wsdl" MetadataType="Wsdl" ID="a7935c5d-a1a5-45bb-8132-1440516921e2" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl11" />
+    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="e046ad03-a576-4918-8874-9c6ef71f2c77" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd1" />
+    <MetadataFile FileName="Service7.xsd" MetadataType="Schema" ID="52843c61-0993-4779-a7c3-63405dfb9c2d" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd12" />
+    <MetadataFile FileName="Service6.wsdl" MetadataType="Wsdl" ID="878ea005-31c8-4fe7-8819-f9c6f7e9ee92" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl9" />
+    <MetadataFile FileName="Service8.xsd" MetadataType="Schema" ID="a188b9e2-3504-405a-84f4-3f4ee8451735" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd11" />
+    <MetadataFile FileName="Service9.xsd" MetadataType="Schema" ID="d1286a2f-4e68-489e-976f-914958ca9de7" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd10" />
+    <MetadataFile FileName="Service7.wsdl" MetadataType="Wsdl" ID="9a97c32e-82cf-4c37-8213-2977c778712e" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl4" />
+    <MetadataFile FileName="Service10.xsd" MetadataType="Schema" ID="1db3017f-eb35-4dc0-a7a1-5e80f17c35a7" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd4" />
+    <MetadataFile FileName="Service8.wsdl" MetadataType="Wsdl" ID="7f4a8bcb-64a0-4356-bf67-b6c0e38e5824" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl14" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="c423a09c-03fb-4276-9a32-33a66c16ead5" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd7" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="ec77aa68-045e-4135-8fc3-c38ef6e7c3e3" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd16" />
+    <MetadataFile FileName="Service9.wsdl" MetadataType="Wsdl" ID="c807422f-2cb2-4b7d-b9fe-17a60bc31fc0" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl3" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="ad59cab5-4acf-434f-b2d3-b3c03aaec385" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd14" />
+    <MetadataFile FileName="Service14.xsd" MetadataType="Schema" ID="0f32c57f-5df0-4eac-b7c4-002e4e81bb85" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd13" />
+    <MetadataFile FileName="Service10.wsdl" MetadataType="Wsdl" ID="57637a46-a745-477a-82ff-9924995df43a" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl5" />
+    <MetadataFile FileName="Service15.xsd" MetadataType="Schema" ID="61564a26-d6a9-4f7f-be34-5935badc098a" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd2" />
+    <MetadataFile FileName="Service16.xsd" MetadataType="Schema" ID="748d74f7-9b46-4906-98ff-4ba87ee528ea" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd22" />
+    <MetadataFile FileName="Service17.xsd" MetadataType="Schema" ID="958dd06b-d3a9-4952-b0a1-a841b18c534e" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd17" />
+    <MetadataFile FileName="Service18.xsd" MetadataType="Schema" ID="b3e6f269-912c-414b-8306-b741a446da3e" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd20" />
+    <MetadataFile FileName="Service19.xsd" MetadataType="Schema" ID="b52d29bb-e214-458e-86fd-eb30c7db3ac3" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd5" />
+    <MetadataFile FileName="Service11.wsdl" MetadataType="Wsdl" ID="704a03e3-18c4-472a-93c4-aa512c7d0841" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl6" />
+    <MetadataFile FileName="Service12.wsdl" MetadataType="Wsdl" ID="df9efb8c-12bc-4be9-a722-ac1effe2d7dd" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl12" />
+    <MetadataFile FileName="Service13.wsdl" MetadataType="Wsdl" ID="6890773c-d513-4fad-ab31-12dea5c38df4" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl1" />
+    <MetadataFile FileName="Service20.xsd" MetadataType="Schema" ID="23c41a9f-c45b-45d6-96aa-a3ab85594fd5" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd8" />
+    <MetadataFile FileName="Service14.wsdl" MetadataType="Wsdl" ID="d97c3351-f9d2-4bbb-ae0b-ca1886e521a8" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl0" />
+    <MetadataFile FileName="Service21.xsd" MetadataType="Schema" ID="df731c31-d239-4d86-8a38-2eaddf0b20a2" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd24" />
+    <MetadataFile FileName="Service22.xsd" MetadataType="Schema" ID="ab67ed47-9dd8-46f3-963a-390aa76e11cd" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd23" />
+    <MetadataFile FileName="Service23.xsd" MetadataType="Schema" ID="306f563e-277b-4b5a-b6df-c1ecfb71dca9" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd21" />
+    <MetadataFile FileName="Service15.wsdl" MetadataType="Wsdl" ID="e26cdc17-bdbf-453a-b19f-0955dbd8b853" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?wsdl=wsdl7" />
+    <MetadataFile FileName="Service24.xsd" MetadataType="Schema" ID="4ed0ff37-582b-48ed-b90c-ef575a93054f" SourceId="1" SourceUrl="http://localhost:4799/QMS/Service?xsd=xsd19" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

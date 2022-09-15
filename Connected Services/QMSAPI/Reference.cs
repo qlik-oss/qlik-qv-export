@@ -11705,6 +11705,9 @@ namespace qlik_qv_export.QMSAPI {
         private int RunCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SourceDocumentFolderPathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private qlik_qv_export.QMSAPI.TaskStatusValue StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -11826,6 +11829,19 @@ namespace qlik_qv_export.QMSAPI {
                 if ((this.RunCountField.Equals(value) != true)) {
                     this.RunCountField = value;
                     this.RaisePropertyChanged("RunCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SourceDocumentFolderPath {
+            get {
+                return this.SourceDocumentFolderPathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SourceDocumentFolderPathField, value) != true)) {
+                    this.SourceDocumentFolderPathField = value;
+                    this.RaisePropertyChanged("SourceDocumentFolderPath");
                 }
             }
         }

@@ -41,6 +41,7 @@ namespace qlik_qv_export
             string appDataPath = AppDomain.CurrentDomain.BaseDirectory;
             string logPath = Path.Combine(appDataPath, "qlik_qv_export_log.txt");
             List<string> parameterList = new List<string>();
+            string errorMessage = string.Empty;
 
             if (args.Length == 1 && args[0].Equals("-help"))
             {
@@ -49,11 +50,15 @@ namespace qlik_qv_export
 
             try
             {
-                foreach (var arg in args)
+                for (int i = 0; i < args.Length; i++)
                 {
-                    parameter = arg.Substring(0, arg.IndexOf('='));
-                    parameterValue = arg.Substring(arg.LastIndexOf('=') + 1);
+                    parameter = args[i];
+                    parameterValue = args.Length > i + 1 ? args[i + 1] : throw new IndexOutOfRangeException();
+                    
+                    if (parameter.Equals(string.Empty) || parameterValue.Equals(string.Empty))
+                        throw new Exception("Given parameter or value is empty");
                     parameterList.Add(parameter.ToLower() + "=" + parameterValue);
+
                     switch (parameter.ToLower())
                     {
                         case "-mode":
@@ -74,7 +79,7 @@ namespace qlik_qv_export
                         case "-handleddirectory":
                             handledDirectory = parameterValue;
                             break;
-                        case "-api_key":
+                        case "-apikey":
                             jwtToken = parameterValue;
                             break;
                         case "-proxyname":
@@ -104,16 +109,22 @@ namespace qlik_qv_export
                         default:
                             break;
                     }
+
+                    parameter = string.Empty;
+                    parameterValue = string.Empty;
+                    i++;
                 }
                 commSupport = new CommunicationSupport(proxyname, proxyport, logPath);
             }
+            catch (IndexOutOfRangeException e)
+            {
+                errorMessage = @"The parameter '" + parameter + "' is missing a value. Exception " + e.Message + " Run help command for information about usage";
+                ThrowException(errorMessage, logPath);
+            }
             catch (Exception e)
             {
-                File.AppendAllText(logPath, DateTime.Now.ToString() + "\t Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + "Exception " + e.Message + " Run help command for information about usage" + Environment.NewLine);
-                Console.WriteLine("Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + "Exception " + e.Message + " Run help command for information about usage", true);
-                Console.WriteLine("Press any key to exit");
-                Console.ReadKey();
-                Environment.Exit(0);
+                errorMessage = @"Exception when reading parameters. Parameter: " + parameter + " Parameter value: " + parameterValue + ". Exception " + e.Message + " Run help command for information about usage";
+                ThrowException(errorMessage, logPath);
             }
             finally
             {
@@ -140,11 +151,20 @@ namespace qlik_qv_export
             }
         }
 
+        private static void ThrowException(string ErrorMessage, string LogPath)
+        {
+            File.AppendAllText(LogPath, DateTime.Now.ToString() + ErrorMessage + Environment.NewLine);
+            Console.WriteLine(ErrorMessage, true);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
+
         private static void RunInMigrateMode()
         {
             if (string.IsNullOrEmpty(cloudDeploymentUrl) || string.IsNullOrEmpty(uploadpath) || string.IsNullOrEmpty(jwtToken) || string.IsNullOrEmpty(appId))
             {
-                commSupport.PrintMessage("cloudurl, uploadpath, appId and api_key are required parameters", true);
+                commSupport.PrintMessage("cloudurl, uploadpath, appId and apikey are required parameters", true);
             }
 
             try
@@ -252,19 +272,19 @@ namespace qlik_qv_export
             Console.WriteLine("qlik_qv_export can only be executed on the machine running the Qlikview Management service");
             Console.WriteLine("");
             Console.WriteLine("Usage when running in doc mode:");
-            Console.WriteLine("-mode=<mode> -cloudUrl=<cloud API endpoint> -qvscluster=<qvs cluster name>  -API_key=<API Key> -documentFolder=<name of QVS folder>");
+            Console.WriteLine("\"-mode\" \"<mode>\" \"-cloudUrl\" \"<cloud API endpoint>\" \"-qvscluster\" \"<qvs cluster name>\" \"-ApiKey\" \"<API Key>\" \"-documentFolder\" \"<name of QVS folder>\"");
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Parameters:");
             Console.WriteLine("-mode            [Required] Which mode should the program run in. 'doc' for uploading qlikview documents to cloud");
             Console.WriteLine("-cloudUrl        [Required] Url of cloud API endpoint, i.e target for document upload");
             Console.WriteLine("-qvscluster      [Required] Name of QlikView server cluster as displayed in QMC");
-            Console.WriteLine("-API_key         [Required] The temporary API Key generated by cloud admin");
+            Console.WriteLine("-ApiKey         [Required] The temporary API Key generated by cloud admin");
             Console.WriteLine("-documentFolder  [Optional] Name of QlikView server document folder, root or mount. All documents in folder will be uploaded. Leave empty for All Documents, type 'root' for Qvs root folder");
             Console.WriteLine("-proxyname       [Optional] Name of proxy machine");
             Console.WriteLine("-proxyport       [Optional] Proxy port");
             Console.WriteLine("");
-            Console.WriteLine("Example: qlik_qv_export.exe -mode=doc -cloudUrl=" + url + " -qvscluster=QVS@machineOne  -API_key=myTempApiKey -documentFolder=myMount");
+            Console.WriteLine("Example: qlik_qv_export.exe \"-mode\" \"doc\" \"-cloudUrl\"" + url + " \"-qvscluster\" \"QVS@machineOne\" \"-ApiKey\" \"myTempApiKey\" \"-documentFolder\" \"myMount\"");
             DisplayMigrateHelp();
         }
 
@@ -273,7 +293,7 @@ namespace qlik_qv_export
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Usage when running in link mode:");
-            Console.WriteLine("-mode=<mode> -space=<name of space> -protocol=<http/https> -qvscluster=<qvs cluster name>  -qvwsmachine=<Qlikview webserver name> -category=<name of category as seen in accesspoint> -filename=<path to file containing exported links>");
+            Console.WriteLine("\"-mode\" \"<mode>\" \"-space\" \"<name of space>\" \"-protocol\" \"<http/https>\" \"-qvscluster\" \"<qvs cluster name>\"  \"-qvwsmachine\" \"<Qlikview webserver name>\" \"-category\" \"<name of category as seen in accesspoint>\" \"-filename\" \"<path to file containing exported links>\"");
             Console.WriteLine("");
             Console.WriteLine("Parameters:");
             Console.WriteLine("-mode        [Required] Which mode should the program run in. 'link' for exporting links to csv file.");
@@ -285,7 +305,7 @@ namespace qlik_qv_export
             Console.WriteLine("-category    [Optional] Only add links belonging to specified category.");
             Console.WriteLine("");
             string path = @"C:\QvLinks\MyQvLinks.csv";
-            Console.WriteLine("Example: qlik_qv_export.exe -mode=link -space=Common -protocol=http -qvscluster=QVS@machineOne  -qvwsmachine=QVWS@webServer -category=Sales -filename=" + path);
+            Console.WriteLine("Example: qlik_qv_export.exe \"-mode\" \"link\" \"-space\" \"Common\" \"-protocol\" \"http\" \"-qvscluster\" \"QVS@machineOne\"  \"-qvwsmachine\" \"QVWS@webServer\" \"-category\" \"Sales\" \"-filename\" \"" + path + "\"");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
             Environment.Exit(0);
@@ -296,17 +316,17 @@ namespace qlik_qv_export
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("Usage when running in migrate mode:");
-            Console.WriteLine("-mode=<mode> -cloudUrl=<cloud_address>  -appId=<cloud app id> -api_key=<api key> -uploadpath=<path to file to be uploaded> -handledDirectory=<directory to where to copy file after upload>");
+            Console.WriteLine("\"-mode\" \"<mode>\" \"-cloudUrl\" \"<cloud_address>\" \"-appId\" \"<cloud app id>\" \"-ApiKey\" \"<api key>\" \"-uploadpath\" \"<path to file to be uploaded>\" \"-handledDirectory\" \"<directory to where to copy file after upload>\"");
             Console.WriteLine("");
             Console.WriteLine("Parameters:");
             Console.WriteLine("-mode                [Required] Which mode should the program run in. 'migrate' to upload BM to cloud.");
             Console.WriteLine("-cloudUrl            [Required] Url of cloud API endpoint, i.e target for document upload");
             Console.WriteLine("-appId               [Required] The id of the app to which the bookmark belongs");
-            Console.WriteLine("-api_key             [Required] The temporary API Key generated by cloud admin");
+            Console.WriteLine("-ApiKey              [Required] The temporary API Key generated by cloud admin");
             Console.WriteLine("-uploadpath          [Required] The full path to the file being uploaded");
             Console.WriteLine("-handledDirectory    [Optional] Directory to where to copy file after upload");
             Console.WriteLine("");
-            Console.WriteLine("Example: qlik_qv_export.exe -mode=migrate -uploadpath=C:\\ALL_R&D.QVW.zip -cloudUrl=https://QloudyMcCloudFace.com/ -appId=2f6cd2fa-f759-4644-8225-b6ce1213142d -api_key=12345");
+            Console.WriteLine("Example: qlik_qv_export.exe \"mode\" \"migrate\" \"uploadpath\" \"C:\\ALL_R&D.QVW.zip\" \"cloudUrl\" \"https://QloudyMcCloudFace.com/ \" \"appId\" \"2f6cd2faf75946448225b6ce1213142d\" \"ApiKey\" \"12345\"");
             DisplayLinkExportHelp();
         }
 
